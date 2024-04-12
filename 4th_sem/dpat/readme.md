@@ -2,8 +2,6 @@
 
 [<- Main page](../../)
 
-Page for course: FAKE
-
 ## Info
 
 **Course full name:**  Data preparation and analysis tools (Засоби підготовки та аналізу даних)
