@@ -14,6 +14,7 @@
 
 ## Labs
 
-Lab | Status | Points | Hour spent |
+Lab | Status | Points | Hour spent 
 --- | --- | --- | ---
-Lab02 | WIP | TDB | TDB 
+Lab02 | WIP | TDB | TDB
+
