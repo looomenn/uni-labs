@@ -8,7 +8,7 @@ tags:
 ---
 ---
 
-[<- Home](../../)
+[<- Home](../)
 
 ### Objectives
 
