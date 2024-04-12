@@ -16,4 +16,4 @@
 
 Lab | Status | Points | Hour spent |
 --- | --- | --- | ---
-[Lab02](lab02/) | WIP | TBD | TBD |
+Lab02 | WIP | TDB | TDB 
