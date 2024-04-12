@@ -12,11 +12,9 @@
 
 **Department:** MMDA
 
-
----
-
 ## Labs
 
 Lab | Status | Points | Hour spent |
 --- | --- | --- | ---
+Lab02 | TDA | TDB | TDB 
 
