@@ -24,7 +24,6 @@ File structure for this repo
 │          └─ readme.md
 ```
 
-
 ## Courses
 
 | Cource               | Semester | Year | Points |
