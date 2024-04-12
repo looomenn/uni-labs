@@ -12,9 +12,6 @@
 
 **Department:** MMDA
 
-
----
-
 ## Labs
 
 Lab | Status | Points | Hour spent |
