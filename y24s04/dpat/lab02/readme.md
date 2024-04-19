@@ -45,6 +45,12 @@ conda install pandas matplotlib BeautifulSoup4
 ```
 ### Appendix
 
+**Файли**
+
+- [main.ipynb](src/main.ipynb)
+- [province_mapper.py](src/province_mapper.py)
+
+
 **Контрольні запитання**
 
 1. Основні кроки по вирішенню задачі аналізу даних
