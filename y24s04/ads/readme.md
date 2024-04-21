@@ -2,7 +2,7 @@
 
 [<- Main page](../../)
 
-Padge for course: ADS
+A page for the course: ADS
 
 ## Info
 
