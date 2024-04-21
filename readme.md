@@ -29,3 +29,4 @@ File structure for this repo
 | Cource               | Semester | Year | Points |
 | -------------------- | -------- | ---- | ------ |
 | [DPAT](y24s04/dpat/) | 04       | 2024 | TBD    |
+| ADS                  | 04       | 2024 | TDB    |
