@@ -20,5 +20,5 @@ Lab | Status | Points |
 --- | --- | --- 
 Lab01 | Done | 7 / 10 |
 Lab02 | Done | 7 / 10 |
-Lab03 | WIP | TDB |
+[Lab03](lab03/) | WIP | TDB |
 
