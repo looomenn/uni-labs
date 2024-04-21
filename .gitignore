@@ -2,3 +2,7 @@
 .obsidian/
 _templates/
 _assets/
+
+\.idea/
+\__pycache__/
+\vhi_dump/
