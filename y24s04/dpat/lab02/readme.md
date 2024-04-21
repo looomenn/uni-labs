@@ -4,7 +4,6 @@ Points:
 Variant: 1
 Dedline: 2024-03-16
 Done?: true
-tags:
 ---
 ---
 
