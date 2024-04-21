@@ -26,7 +26,7 @@ File structure for this repo
 
 ## Courses
 
-| Cource               | Semester | Year | Points |
+| Course               | Semester | Year | Points |
 | -------------------- | -------- | ---- | ------ |
 | [DPAT](y24s04/dpat/) | 04       | 2024 | TBD    |
-| ADS                  | 04       | 2024 | TDB    |
+| [ADS](y24s04/ads/)   | 04       | 2024 | TDB    |
