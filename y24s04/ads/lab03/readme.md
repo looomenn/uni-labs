@@ -43,3 +43,4 @@ conda install pyinputplus numpy
 
 **Файли**
 - [ASD_Lab3.doc](doc/ASD_Lab3.doc)
+- [main.py](src/main.py)
