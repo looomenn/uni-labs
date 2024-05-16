@@ -122,7 +122,6 @@ def main():
     print(f'[*] You entered {len(words)} word(s).')
 
     handler(inp, solver_list)
-    handler(inp, solver_array)
     handler(inp, solver_dll)
 
 
