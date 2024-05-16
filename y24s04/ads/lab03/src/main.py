@@ -172,28 +172,13 @@ def solver_list(inp: str) -> tuple:
     used = []
 
     for word in words:
-        if len(word) % 2 == 1:
-            if len(word) > 1:
-                used.append(word.replace('.', '').replace(',', ''))
+        if len(word) % 2 == 1 and len(word) > 1:
+            used.append(word.replace('.', '').replace(',', ''))
 
-                modified_word = word[1:-1] + ','
-                modified_words.append(modified_word)
+            modified_word = word[1:-1] + ','
+            modified_words.append(modified_word)
 
     return modified_words, used
-
-
-def solver_array(inp: str) -> tuple:
-    """ Solves the task using numpy array """
-
-    words = np.array(inp.strip('.').split())
-
-    temp = np.vectorize(lambda x: len(x) % 2 == 1 and len(x) > 1)
-    filtered_words = words[temp(words)]
-
-    modified_word = np.vectorize(lambda x: x[1:-1] + ',')
-    modified_words = modified_word(filtered_words)
-
-    return modified_words, filtered_words
 
 
 def solver_dll(inp: str) -> tuple:
@@ -205,12 +190,12 @@ def solver_dll(inp: str) -> tuple:
     modified_words = DoublyLinkedList()
 
     for word in words:
-        if len(word) % 2 == 1:
-            if len(word) > 1:
-                used_words.insert_at_start(word.replace('.', '').replace(',', ''))
+        if len(word) % 2 == 1 and len(word) > 1:
+            cleaned = word.replace('.', '').replace(',', '')
+            used_words.insert_at_start(cleaned)
 
-                modified_word = word[1:-1] + ','
-                modified_words.insert_at_start(modified_word)
+            modified_word = word[1:-1] + ','
+            modified_words.insert_at_start(modified_word)
 
     return modified_words, used_words
 
