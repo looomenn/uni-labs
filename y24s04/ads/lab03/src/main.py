@@ -12,6 +12,106 @@ from typing import Callable
 STATS: dict = {}
 
 
+class Node:
+    """ Node class for DLL"""
+
+    def __init__(self, data):
+        self.data = data  # stores actual data
+        self.next = None  # pointer for the next node
+        self.prev = None  # pointer for the prev node
+
+
+class DoublyLinkedList:
+    """ DLL implementation """
+
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def is_empty(self) -> bool:
+        return self.head is None
+
+    def insert_at_start(self, data):
+        new_node = Node(data)
+
+        if self.is_empty():
+            self.head = self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+
+    def insert_at_end(self, data):
+        new_node = Node(data)
+        if self.is_empty():
+            self.head = self.tail = new_node
+        else:
+            new_node.prev = self.tail
+            self.tail.next = new_node
+            self.tail = new_node
+
+    def delete_from_start(self):
+        if self.is_empty():
+            return None
+
+        data = self.head.data
+
+        if self.head == self.tail:
+            self.head = self.tail = None
+        else:
+            self.head = self.head.next
+            self.head.prev = None
+
+        return data
+
+    def delete_from_end(self):
+        if self.is_empty():
+            return None
+
+        data = self.tail.data
+
+        if self.head == self.tail:
+            self.head = self.tail = None
+        else:
+            self.tail = self.tail.prev
+            self.tail.next = None
+
+        return data
+
+    def display_forward(self):
+        current = self.head
+        while current:
+            print(current.data, end=' ')
+            current = current.next
+
+    def display_backward(self):
+        current = self.tail
+
+        while current:
+            print(current.data, end=' ')
+            current = current.prev
+
+    def return_forward(self) -> list:
+        current = self.head
+        temp = []
+
+        while current:
+            temp.append(current.data)
+            current = current.next
+
+        return temp
+
+    def return_backward(self) -> list:
+        current = self.tail
+        temp = []
+
+        while current:
+            temp.append(current.data)
+            current = current.prev
+
+        return temp
+
+
 def main():
     """ Main entry point """
 
@@ -23,6 +123,7 @@ def main():
 
     handler(inp, solver_list)
     handler(inp, solver_array)
+    handler(inp, solver_dll)
 
 
 def validate(inp: str) -> str:
@@ -52,8 +153,13 @@ def handler(inp: str, func: Callable):
 
     print(f'Solving using {func_name.split()[1]}')
     print(f'[+] Result:')
-    print(f'\tUsed words: {", ".join(word for word in used_words):>15}')
-    print(f'\tFormatted result: {" ".join(word for word in modified_words):<5}')
+
+    if isinstance(modified_words, DoublyLinkedList) and isinstance(used_words, DoublyLinkedList):
+        print(f'\tUsed words: {", ".join(word for word in used_words.return_backward())}')
+        print(f'\tFormatted result: {" ".join(word for word in modified_words.return_backward())}')
+    else:
+        print(f'\tUsed words: {", ".join(word for word in used_words)}')
+        print(f'\tFormatted result: {" ".join(word for word in modified_words)}')
     print(f'[!] Time taken: {elapsed_time:6f}\n')
 
 
@@ -68,7 +174,6 @@ def solver_list(inp: str) -> tuple:
     for word in words:
         if len(word) % 2 == 1:
             if len(word) > 1:
-
                 used.append(word.replace('.', '').replace(',', ''))
 
                 modified_word = word[1:-1] + ','
@@ -78,7 +183,7 @@ def solver_list(inp: str) -> tuple:
 
 
 def solver_array(inp: str) -> tuple:
-    """ Solves the task using np.array """
+    """ Solves the task using numpy array """
 
     words = np.array(inp.strip('.').split())
 
@@ -89,6 +194,25 @@ def solver_array(inp: str) -> tuple:
     modified_words = modified_word(filtered_words)
 
     return modified_words, filtered_words
+
+
+def solver_dll(inp: str) -> tuple:
+    """ Solves the task using doubly linked list """
+
+    words = inp.strip('.').split()
+
+    used_words = DoublyLinkedList()
+    modified_words = DoublyLinkedList()
+
+    for word in words:
+        if len(word) % 2 == 1:
+            if len(word) > 1:
+                used_words.insert_at_start(word.replace('.', '').replace(',', ''))
+
+                modified_word = word[1:-1] + ','
+                modified_words.insert_at_start(modified_word)
+
+    return modified_words, used_words
 
 
 def print_task_preset() -> None:
