@@ -225,7 +225,7 @@ def print_task_preset() -> None:
     - Outputs the modified word.
 
     Example Input: "hello world, this is an example of a text."
-    Example Output: ["ello,", "his,", "an,", "exampl,"]
+    Example Output: "ell, orl, xampl,"
     """
 
     print(banner)
