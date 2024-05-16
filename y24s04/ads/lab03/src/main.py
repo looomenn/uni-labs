@@ -171,8 +171,9 @@ def solver_list(inp: str) -> tuple:
     used = []
 
     for word in words:
-        if len(word) % 2 == 1 and len(word) > 1:
-            used.append(word.replace('.', '').replace(',', ''))
+        word = word.replace('.', '').replace(',', '')
+        if len(word) > 2 and len(word) % 2 == 1:
+            used.append(word)
 
             modified_word = word[1:-1] + ','
             modified_words.append(modified_word)
@@ -189,9 +190,9 @@ def solver_dll(inp: str) -> tuple:
     modified_words = DoublyLinkedList()
 
     for word in words:
-        if len(word) % 2 == 1 and len(word) > 1:
-            cleaned = word.replace('.', '').replace(',', '')
-            used_words.insert_at_start(cleaned)
+        word = word.replace('.', '').replace(',', '')
+        if len(word) > 2 and len(word) % 2 == 1:
+            used_words.insert_at_start(word)
 
             modified_word = word[1:-1] + ','
             modified_words.insert_at_start(modified_word)
