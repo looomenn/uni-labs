@@ -55,7 +55,8 @@ def translate(language: str,
 
         return phrase
 
-    except KeyError:
+    except KeyError as err:
         return (f"{module_prefixes[language]['system']}"
                 f"{status_prefix['error']} "
-                f"{TRANSLATIONS[language]['system']['no_translation']}")
+                f"{TRANSLATIONS[language]['system']['no_translation']}"
+                f"(key error: {err})")

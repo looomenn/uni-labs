@@ -13,7 +13,11 @@
             "item_deleted": "Видалено '{delete_item}' з черги",
             "initialized": "Черга ініціалізована",
             "empty_queue": "Черга порожня :(",
-            "invalid_equation_math": "Невірне математичне рівняння"
+            "full_queue": "Черга заповнена! '{skip_item}' ігноровано",
+            "queue_status": "Статус черги:",
+            "queue_size": "{indent}Розмір: {size}",
+            "queue_fullness": "{indent}Заповненість: {fullness}",
+            "queue_content": "{indent}Вміст: {content}"
         },
         "equations": {
             "example": "Приклад рівняння:",
@@ -40,7 +44,12 @@
             "item_added": "Enqueued '{add_item}'",
             "item_deleted": "Dequeued '{delete_item}'",
             "empty_queue": "Queue is empty :(",
-            "invalid_equation_math": "Invalid mathematical equation"
+            "full_queue": "Queue is full! '{skip_item}' ignored",
+            "invalid_equation_math": "Invalid mathematical equation",
+            "queue_status": "Queue status:",
+            "queue_size": "{indent}Size: {size}",
+            "queue_fullness": "{indent}Fullness: {fullness}",
+            "queue_content": "{indent}Content: {content}"
         },
         "equations": {
             "example": "Example equation:",

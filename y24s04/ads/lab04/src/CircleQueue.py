@@ -1,4 +1,8 @@
 
+import os
+from translate import translate
+
+LANG:str = os.getenv('LANG', 'eng')
 INDENT: str = '\t\t\t\t'
 
 
@@ -11,18 +15,19 @@ class CircleQueue:
 
     def enqueue(self, item):
         if (self.tail + 1) % self.size == self.head:
-            print(f'[CQ][!] Queue is full, thus {item} won\'t be enqueued')
+            print(translate(LANG, 'queues', 'full_queue',
+                            'error', True, skip_item=item))
         else:
             if self.head == -1:
                 self.head = 0
 
             self.tail = (self.tail + 1) % self.size
             self.queue[self.tail] = item
-            print(f'[CQ][+] Enqueued: {item}')
+            print(translate(LANG,'queues','item_added','add',True, add_item=item))
 
     def dequeue(self):
         if self.head == -1:
-            print('[CQ][!] Queue is empty')
+            print(translate(LANG, 'queues', 'empty_queue', 'error', True))
 
         else:
             tmp = self.queue[self.head]
@@ -32,12 +37,13 @@ class CircleQueue:
             else:
                 self.head = (self.head + 1) % self.size
 
-            print(f'[CQ][-] Dequeued: {tmp}')
+            print(translate(LANG, 'queues', 'item_deleted', 'delete',
+                            True, delete_item=tmp))
             return tmp
 
     def display(self):
         if self.head == -1:
-            print(f'[CQ][!] Queue is empty')
+            print(translate(LANG, 'queues', 'empty_queue', 'error', True))
         else:
             if self.tail >= self.head:
                 content = self.queue[self.head:self.tail + 1]
@@ -46,8 +52,13 @@ class CircleQueue:
                 content = self.queue[self.head:self.size] + self.queue[0:self.tail + 1]
                 fill = self.size - self.head + self.tail + 1
 
-            status = 'full' if (self.tail + 1) % self.size == self.head else f'{fill}/{self.size}'
-            print(f'[CQ][*] Queue:')
-            print(f'{INDENT}Size: {self.size}')
-            print(f'{INDENT}Fullness: {status}')
-            print(f'{INDENT}Content: {content}')
+            print(translate(LANG, 'queues', 'queue_status', 'general', True))
+
+            print(translate(LANG, 'queues', 'queue_size',
+                            '', False, indent=INDENT, size=self.size))
+
+            print(translate(LANG, 'queues', 'queue_fullness','',
+                            False, indent=INDENT, fullness=f'{fill}/{self.size}'))
+
+            print(translate(LANG, 'queues', 'queue_content','',
+                            False, indent=INDENT, content=content))
