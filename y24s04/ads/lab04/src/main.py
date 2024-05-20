@@ -5,8 +5,8 @@ Lab: 04
 
 import pyinputplus as pyip
 
-from CircleQueue import CircleQueue
 from ListQueue import ListQueue
+from CircleQueue import CircleQueue
 from translate import translate, tprint
 
 LANG: str = 'eng'
