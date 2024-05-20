@@ -3,17 +3,16 @@ Course: ADS'4
 Lab: 04
 """
 
-import os
 import pyinputplus as pyip
 
-from translate import translate
 from CircleQueue import CircleQueue
 from ListQueue import ListQueue
+from translate import translate
 
-LANGUAGE: str = 'ukr'
-DEBUG: bool = True
+LANGUAGE: str = 'eng'
+DEBUG: bool = False
 INDENT: str = '\t\t\t\t'
-BANNER: str = r"""
+BANNER: str = r""" 
 ───────────────────────────
 ange1o      2024      lab04"""
 
@@ -52,11 +51,11 @@ def home_menu():
             case _ if choice == choices[0]:
                 queue_task_menu()
 
-            case  _ if choice == choices[1]:
+            case _ if choice == choices[1]:
                 equations_task_menu()
 
-            case  _ if choice == choices[2]:
-                print(translate(LANGUAGE, 'system', 'nuh', 'error'))
+            case _ if choice == choices[-1]:
+                print(translate(LANGUAGE, 'menu', 'goodbye', '', use_prefixes=False))
                 break
 
             case _:
@@ -64,94 +63,126 @@ def home_menu():
 
 
 def queue_task_menu():
-    prompt = '\n>> Queue task\nYou are almost there! Select the type of the queue to use!\n'
+    prompt = translate(LANGUAGE, 'queues', 'menu_prompt', '', use_prefixes=False)
+
+    choices: list = [
+        translate(LANGUAGE, 'queues', 'circular_queue', use_prefixes=False),
+        translate(LANGUAGE, 'queues', 'list_queue', use_prefixes=False),
+        translate(LANGUAGE, 'menu', 'return_back', use_prefixes=False),
+    ]
 
     while True:
         print(BANNER)
-        choice = pyip.inputMenu(['Circular', 'List', 'Leave .______.'],
+        choice = pyip.inputMenu(choices=choices,
                                 prompt=prompt,
                                 numbered=True,
                                 blank=False)
 
         match choice:
-            case 'Circular':
-                size = pyip.inputInt('Enter queue size ^_+ (min: 1, max: 30): ', min=1, max=30)
+            case _ if choice == choices[0]:
+
+                min_, max_ = 1, 30  # queue size limits
+
+                size_prompt = translate(LANGUAGE, 'queues', 'enter_size', 'input', min=min_, max=max_)
+                size = pyip.inputInt(prompt=size_prompt, min=min_, max=max_)
                 queue = CircleQueue(size)
 
-                print(f"Initialised the circular queue with size: {size}")
+                print(translate(LANGUAGE, 'queues', 'initialized', 'general', size=size))
                 queue_menu(queue)
 
-            case 'List':
+            case _ if choice == choices[1]:
                 queue = ListQueue()
                 queue_menu(queue)
 
-            case 'Leave .______.':
-                print('Wrapping things up..')
+            case _ if choice == choices[-1]:
+                print(translate(LANGUAGE, 'menu', 'return_goodbye', '', use_prefixes=False))
                 break
 
             case _:
-                print("Nuh.. that won't work :( ")
+                print(translate(LANGUAGE, 'system', 'nuh', 'error'))
 
 
 def queue_menu(queue: CircleQueue | ListQueue):
-    prompt: str = '\n>> Queue menu:\n'
+    if isinstance(queue, CircleQueue):
+        queue_type: str = translate(LANGUAGE, 'queues',
+                                    'circular_queue', '', use_prefixes=False)
+    else:
+        queue_type: str = translate(LANGUAGE, 'queues', 'list_queue', use_prefixes=False)
+
+    prompt: str = translate(LANGUAGE, 'queues', 'control_menu_prompt',
+                            use_prefixes=False, type=queue_type)
+
+    choices: list = [
+        translate(LANGUAGE, 'queues', 'control_menu_add', use_prefixes=False),
+        translate(LANGUAGE, 'queues', 'control_menu_add_bulk', use_prefixes=False),
+        translate(LANGUAGE, 'queues', 'control_menu_delete', use_prefixes=False),
+        translate(LANGUAGE, 'queues', 'control_menu_status', use_prefixes=False),
+        translate(LANGUAGE, 'menu', 'return_back', use_prefixes=False)
+    ]
 
     while True:
         print(BANNER)
-        choice = pyip.inputMenu(['Enqueue',
-                                 'Bulk enqueue',
-                                 'Dequeue',
-                                 'Display Queue',
-                                 '<-- Back to menu'
-                                 ],
+        choice = pyip.inputMenu(choices=choices,
                                 prompt=prompt,
-                                numbered=True)
+                                numbered=True,
+                                blank=False)
 
         match choice:
-            case 'Enqueue':
-                item = pyip.inputStr("Enter the item to enqueue: ",
+            case _ if choice == choices[0]:
+                add_prompt = translate(LANGUAGE, 'system', 'input', 'input')
+
+                item = pyip.inputStr(prompt=add_prompt,
                                      strip=True,
                                      blank=False)
                 queue.enqueue(item)
 
-            case 'Bulk enqueue':
-                items = pyip.inputStr("Enter the items to enqueue, separated by spaces: ")
+            case _ if choice == choices[1]:
+                bulk_prompt = translate(LANGUAGE, 'system', 'bulk_input', 'input')
+                items = pyip.inputStr(prompt=bulk_prompt, strip=True, blank=False)
                 [queue.enqueue(item) for item in items.split()]
 
-            case 'Dequeue':
+            case _ if choice == choices[2]:
                 queue.dequeue()
 
-            case 'Display Queue':
+            case _ if choice == choices[3]:
                 queue.display()
 
-            case '<-- Back to menu':
+            case _ if choice == choices[-1]:
+                print(translate(LANGUAGE, 'menu', 'return_goodbye', '', use_prefixes=False))
                 break
 
             case _:
-                print('Nuh uh..')
+                print(translate(LANGUAGE, 'system', 'nuh', 'error'))
 
 
 def equations_task_menu():
     """ menu handler for equations task """
 
-    prompt: str = '\n>> Equations task:\n'
+    choices: list = [
+        translate(LANGUAGE, 'equations', 'examples', use_prefixes=False),
+        translate(LANGUAGE, 'equations', 'own_equation', use_prefixes=False),
+        translate(LANGUAGE, 'menu', 'return_back', use_prefixes=False),
+    ]
+
+    prompt: str = translate(LANGUAGE, 'equations', 'menu_prompt', use_prefixes=False)
 
     while True:
         print(BANNER)
-        choice = pyip.inputMenu(['Examples', 'Enter own equation', '<-- Back to menu'],
+        choice = pyip.inputMenu(choices=choices,
                                 prompt=prompt,
                                 numbered=True,
                                 blank=False)
         match choice:
-            case 'Examples':
+            case _ if choice == choices[0]:
                 equations_example()
-            case 'Enter own equation':
+            case _ if choice == choices[1]:
                 equation_input_handler()
-            case '<-- Back to menu':
-                print('Ok... You\'re the captain')
+            case _ if choice == choices[-1]:
+                print(translate(LANGUAGE, 'menu', 'return_goodbye', '', use_prefixes=False))
                 break
+
             case _:
-                print("Nuh.. that won't work :( ")
+                print(translate(LANGUAGE, 'system', 'nuh', 'error'))
 
 
 def equation_input_handler():
@@ -254,26 +285,10 @@ def validation(equation: str) -> str:
     return equation
 
 
-"""
-def validate(inp: str) -> str:
-
-    inp = inp.lower()
-
-    if any(char not in "abcdefghijklmnopqrstuvwxyz .,'" for char in inp):
-        raise pyip.ValidationException(f'[!] Input must only contain lowercase Latin letters, spaces, and a dot. ')
-
-    if not inp.endswith('.'):
-        raise pyip.ValidationException("[!] Input must end with a dot.")
-
-    return inp
-
-"""
-
-
 def equations_example():
     """ example handler for equations """
 
-    equations_: dict = {
+    equations: dict = {
         'eq1': {
             'infix': '(((A - B) * C) + (D / (E + F)))',
             'supports_evaluation': False
@@ -300,11 +315,13 @@ def equations_example():
         }
     }
 
-    for key, equation in equations_.items():
+    for key, equation in equations.items():
         infix = equation['infix']
         postfix = to_postfix(infix)
 
-        print(f'[EQ] Equation: {infix}')
+        print(translate(LANGUAGE, 'equations',
+                        'equation', 'general', equation=infix))
+
         print(f'{INDENT}Postfix form: {" ".join(postfix)}')
 
         if equation['supports_evaluation']:
@@ -369,13 +386,13 @@ def to_postfix(equation):
 
     if DEBUG: print(f'[EQ][D] {symbols}')
 
-    for symbol in symbols:  # If the token is an operand (digit), add it to the output
+    for symbol in symbols:  # if the symbol is an operand (digit), add it to the output
         if symbol.isalnum():
             result.append(symbol)
-        elif symbol == '(':  # If the token is '(', push it onto the stack
+        elif symbol == '(':  # if the symbol is '(', push it onto the stack
             stack.append(symbol)
 
-        elif symbol == ')':  # If the symbol is ')', pop and output from the stack until '(' is found
+        elif symbol == ')':  # if the symbol is ')', pop and output from the stack until '(' is found
             while stack and stack[-1] != '(':
                 result.append(stack.pop())
             stack.pop()  # pops ( from the stack

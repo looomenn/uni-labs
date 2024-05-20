@@ -1,17 +1,28 @@
 {
     "ukr": {
         "menu": {
-            "welcome": "\nЛаскаво просимо! Вибирайте свою програму долю:\n",
-            "goodbye": "Адіос... ",
+            "welcome": "\nВітаю \\(^_^)\nЩо робимо сьогодні?\n",
+            "goodbye": "Вже йдеш? Ех... давай... <( _ _ )>",
+            "return_goodbye": "(T_T)... Ну окей, повертаємося назад",
             "invalid_option": "Неправильний вибір, спробуйте ще раз",
             "queue-task": "Завдання з чергами",
             "equation-task": "Завдання з рівняннями",
-            "leave": "Завершити виконання (T_T)"
+            "leave": "Вийти",
+            "return_back": "< Повернутися назад"
         },
         "queues": {
+            "menu_prompt": "\nЧерги, черги та ще раз черги...\nВиберіть тип черги:\n",
+            "circular_queue": "Кільцева",
+            "list_queue": "Список",
+            "enter_size": "Вкажіть розмір черги (мінімум:{min}; максимум:{max}): ",
+            "initialized": "Черга розміром {size} ініціалізована",
+            "control_menu_prompt": "\nВибраний тип черги: {type}\nЩо робити?\n",
+            "control_menu_add": "Додати елемент",
+            "control_menu_add_bulk": "Додати декілька елементів",
+            "control_menu_delete": "Видалити елемент",
+            "control_menu_status": "Відобразити стан",
             "item_added": "Додано {add_item} до черги",
             "item_deleted": "Видалено '{delete_item}' з черги",
-            "initialized": "Черга ініціалізована",
             "empty_queue": "Черга порожня :(",
             "full_queue": "Черга заповнена! '{skip_item}' ігноровано",
             "queue_status": "Статус черги:",
@@ -20,8 +31,9 @@
             "queue_content": "{indent}Вміст: {content}"
         },
         "equations": {
-            "example": "Приклад рівняння:",
-            "input": "Введіть ваше рівняння: ",
+            "menu_prompt": "\nНу... рівняння, шо тут ще сказати...\n?Як я можу допомогти?\n",
+            "examples": "Покажи приклади рівнянь",
+            "own_equation": "Хочу ввести своє рівняння",
             "invalid_equation_math": "Невірне математичне рівняння",
             "consecutive_operators": "Рівняння не може містити операторів, що йдуть підряд",
             "invalid_structure": "Рівняння повинно складатися або зі змінних або з цифри",
@@ -30,21 +42,36 @@
         "system": {
             "nuh": "Який розумний. Тут таке не працює....",
             "no_translation": "Переклад не знайдено",
-            "input": "Ввід: "
+            "input": "Введіть бажаний елемент: ",
+            "bulk_input": "Введіть бажані елементи, розділяючи їх пробілами: "
         }
     },
     "eng": {
         "menu": {
-            "welcome": "\nWelcome! Choose your destiny for now:\n",
-            "goodbye": "Goodbye!",
-            "invalid_option": "Invalid option, please try again."
+            "welcome": "\nHi there \\(^_^)\nWhat are we doing today?\n",
+            "goodbye": "Farewell...  <( _ _ )>",
+            "return_goodbye": "Damn...okay...one moment pls",
+            "invalid_option": "Invalid option, please try again.",
+            "queue-task": "Queues",
+            "equation-task": "Equations",
+            "leave": "Exit",
+            "return_back": "< Return back"
         },
         "queues": {
-            "initialized": "Queue initialized.",
-            "item_added": "Enqueued '{add_item}'",
-            "item_deleted": "Dequeued '{delete_item}'",
+            "menu_prompt": "\nQueues\nSelect the type of the queue to use!\n",
+            "circular_queue": "Circular",
+            "list_queue": "List",
+            "enter_size": "Enter queue size (min:{min} max:{max})",
+            "initialized": "The queue of size {size} is initialized",
+            "control_menu_prompt": "\nNow choose what to do with this queue:\n",
+            "control_menu_add": "Add item to the queue",
+            "control_menu_add_bulk": "Bulk add items to the queue",
+            "control_menu_delete": "Delete item from the queue",
+            "control_menu_status": "Display queue",
+            "item_added": "Added '{add_item}' to the queue",
+            "item_deleted": "Deleted '{delete_item}' from the queue",
             "empty_queue": "Queue is empty :(",
-            "full_queue": "Queue is full! '{skip_item}' ignored",
+            "full_queue": "Queue is full, thus '{skip_item}' ignored",
             "invalid_equation_math": "Invalid mathematical equation",
             "queue_status": "Queue status:",
             "queue_size": "{indent}Size: {size}",
@@ -52,8 +79,10 @@
             "queue_content": "{indent}Content: {content}"
         },
         "equations": {
-            "example": "Example equation:",
-            "input": "Input your equation: ",
+            "menu_prompt": "\nLike.. equations.. letters and gitis yeah?\nHow can I help you?\n",
+            "examples": "Show me some examples",
+            "equation": "Equation {equation}",
+            "own_equation": "Yeah.. I want to enter my own equation",
             "invalid_equation_math": "Invalid mathematical equation",
             "consecutive_operators": "An equation cannot contain consecutive operators",
             "invalid_structure": "Equation must contain either only digits or only variables, but not both",
@@ -62,7 +91,8 @@
         "system": {
             "nuh": "Nuh uh... that won't work here",
             "no_translation": "Translation not found",
-            "input": "Input: "
+            "input": "Enter the desired item: ",
+            "bulk_input": "Enter the desired items, separating them with spaces: "
         }
     }
 }

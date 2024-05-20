@@ -5,6 +5,7 @@ import os
 from translate import translate
 
 LANG:str = os.getenv('LANG', 'eng')
+INDENT: str = '\t\t\t\t'
 
 
 class ListQueue:
@@ -29,4 +30,7 @@ class ListQueue:
         if not self.queue:
             print(translate(LANG,'queues','empty_queue','error',True))
         else:
-            print(f'[LQ] Queue: {self.queue}')
+            print(translate(LANG, 'queues', 'queue_status', 'general', True))
+
+            print(translate(LANG, 'queues', 'queue_content', '',
+                            False, indent=INDENT, content=self.queue))

@@ -11,13 +11,14 @@ def load_translations(file_path):
 TRANSLATIONS = load_translations('locales.json')
 
 
-def translate(language: str,
-              module: str,
-              phrase: str,
-              status: str = 'general',
-              use_prefixes: bool = True,
-              **kwargs):
-
+def translate(
+    language: str,
+    module: str,
+    phrase: str,
+    status: str = 'general',
+    use_prefixes: bool = True,
+    **kwargs
+):
     module_prefixes: dict = {
         'ukr': {
             'menu': '[Меню]',
