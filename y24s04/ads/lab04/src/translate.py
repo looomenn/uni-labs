@@ -18,7 +18,11 @@ def translate(
     status: str = 'general',
     use_prefixes: bool = True,
     **kwargs
-):
+) -> str:
+    """
+    Translates given phrase from given module and language
+    :rtype: object
+    """
     module_prefixes: dict = {
         'ukr': {
             'menu': '[Меню]',
@@ -61,3 +65,24 @@ def translate(
                 f"{status_prefix['error']} "
                 f"{TRANSLATIONS[language]['system']['no_translation']}"
                 f"(key error: {err})")
+
+
+def tprint(
+        language: str,
+        module: str,
+        phrase: str,
+        status: str = 'general',
+        use_prefixes: bool = True,
+        **kwargs: object
+) -> None:
+    """ translates and prints translated text
+    :param language: language to translate
+    :param module: phrase from which module to take
+    :param phrase: code for phrase from locale file
+    :param status: status prefix (see translate func for more details)
+    :param use_prefixes: whether to use module and status prefixes
+    :param kwargs: additional keyword arguments for dynamic strings
+    :rtype: None
+    """
+    translated_text = translate(language, module, phrase, status, use_prefixes, **kwargs)
+    print(translated_text)
