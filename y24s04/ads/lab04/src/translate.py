@@ -64,7 +64,7 @@ def translate(
         return (f"{module_prefixes[language]['system']}"
                 f"{status_prefix['error']} "
                 f"{TRANSLATIONS[language]['system']['no_translation']}"
-                f"(key error: {err})")
+                f" (DEBUG) key error: {err}; {module=}; {language=}; {phrase=}")
 
 
 def tprint(

@@ -19,7 +19,7 @@ ange1o      2024      lab04"""
 BANNED_REG = [
     (
         r'[^0-9A-Za-z\s()+\-*/]',
-        translate(LANG, 'system', 'error', 'nuh')
+        translate(LANG, 'system', 'nuh', 'error')
     )
 ]
 
@@ -187,27 +187,24 @@ def equation_input_handler():
         LANG, 'equations', 'input', 'input'
     )
 
-    while True:
-        equation, equation_type = pyip.inputCustom(
-            customValidationFunc=validation,
-            prompt=prompt,
-            blank=False,
-            strip=True,
-            blockRegexes=BANNED_REG
-        )
+    equation, equation_type = pyip.inputCustom(
+        customValidationFunc=validation,
+        prompt=prompt,
+        blank=False,
+        strip=True,
+        blockRegexes=BANNED_REG
+    )
 
-        postfix = to_postfix(equation)
+    postfix = to_postfix(equation)
 
-        tprint(LANG, 'equations', 'equation', equation=equation)
+    tprint(LANG, 'equations', 'equation', equation=equation)
 
-        tprint(LANG, 'equations', 'postfix_form',
-               use_prefixes=False, indent=INDENT, equation=" ".join(postfix))
+    tprint(LANG, 'equations', 'postfix_form',
+           use_prefixes=False, indent=INDENT, equation=" ".join(postfix))
 
-        if equation_type == 'digits':
-            tprint(LANG, 'equations', 'evaluation',
-                   use_prefixes=False, indent=INDENT, result=evaluate(postfix))
-
-        break
+    if equation_type == 'digits':
+        tprint(LANG, 'equations', 'evaluation',
+               use_prefixes=False, indent=INDENT, result=evaluate(postfix))
 
 
 def validation(equation: str) -> (str, str):
@@ -396,7 +393,8 @@ def to_postfix(equation):
         else:
             i += 1
 
-    if DEBUG: print(f'[EQ][D] {symbols}')
+    if DEBUG:
+        print(f'[EQ][D] {symbols}')
 
     for symbol in symbols:  # if the symbol is an operand (digit), add it to the output
         if symbol.isalnum():
@@ -410,7 +408,9 @@ def to_postfix(equation):
             stack.pop()  # pops ( from the stack
 
         else:  # handling operators
-            if DEBUG: print(f'{symbol=}, {stack=}, {priority[symbol]=}')
+            if DEBUG:
+                print(f'{symbol=}, {stack=}, {priority[symbol]=}')
+
             while stack and stack[-1] != '(' and priority[symbol] <= priority[stack[-1]]:
                 result.append(stack.pop())
             stack.append(symbol)
