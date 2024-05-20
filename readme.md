@@ -29,4 +29,5 @@ File structure for this repo
 | Course               | Semester | Year | Points |
 | -------------------- | -------- | ---- | ------ |
 | [DPAT](y24s04/dpat/) | 04       | 2024 | TBD    |
-| [ADS](y24s04/ads/)   | 04       | 2024 | TDB    |
+| [ADS](y24s04/ads/)   | 04       | 2024 | TBD    |
+| [ZPD](y24s04/zpd/)   | 04       | 2024 | TBD    |
