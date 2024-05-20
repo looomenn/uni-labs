@@ -34,6 +34,13 @@
             "menu_prompt": "\nНу... рівняння, шо тут ще сказати...\n?Як я можу допомогти?\n",
             "examples": "Покажи приклади рівнянь",
             "own_equation": "Хочу ввести своє рівняння",
+
+            "equation": "Рівняння: {equation}",
+            "postfix_form": "{indent}Постфіксна форма: {equation}",
+            "evaluation": "{indent}Результат обчислення: {evaluation}",
+            "evaluation_not_supported": "{indent}Результат обчислення дорівнює постфіксній формі",
+            "input": "Введіть рівняння у інфіксному форматі",
+
             "invalid_equation_math": "Невірне математичне рівняння",
             "consecutive_operators": "Рівняння не може містити операторів, що йдуть підряд",
             "invalid_structure": "Рівняння повинно складатися або зі змінних або з цифри",
@@ -79,10 +86,14 @@
             "queue_content": "{indent}Content: {content}"
         },
         "equations": {
-            "menu_prompt": "\nLike.. equations.. letters and gitis yeah?\nHow can I help you?\n",
+            "menu_prompt": "\nLike.. equations.. letters and digits yeah?\nHow can I help you?\n",
             "examples": "Show me some examples",
-            "equation": "Equation {equation}",
             "own_equation": "Yeah.. I want to enter my own equation",
+            "equation": "Equation: {equation}",
+            "postfix_form": "{indent}Postfix form: {equation}",
+            "evaluation": "{indent}Evaluation: {result}",
+            "evaluation_not_supported": "{indent}Evaluation is equal to infix form",
+            "input": "Enter your equation in infix form: ",
             "invalid_equation_math": "Invalid mathematical equation",
             "consecutive_operators": "An equation cannot contain consecutive operators",
             "invalid_structure": "Equation must contain either only digits or only variables, but not both",

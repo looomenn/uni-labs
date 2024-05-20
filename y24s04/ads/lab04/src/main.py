@@ -7,11 +7,11 @@ import pyinputplus as pyip
 
 from CircleQueue import CircleQueue
 from ListQueue import ListQueue
-from translate import translate
+from translate import translate, tprint
 
-LANGUAGE: str = 'eng'
+LANG: str = 'eng'
 DEBUG: bool = False
-INDENT: str = '\t\t\t\t'
+INDENT: str = '\t\t\t'
 BANNER: str = r""" 
 ───────────────────────────
 ange1o      2024      lab04"""
@@ -19,12 +19,7 @@ ange1o      2024      lab04"""
 BANNED_REG = [
     (
         r'[^0-9A-Za-z\s()+\-*/]',
-        translate(
-            LANGUAGE,
-            'system',
-            'error',
-            'nuh'
-        )
+        translate(LANG, 'system', 'error', 'nuh')
     )
 ]
 
@@ -32,12 +27,12 @@ BANNED_REG = [
 def home_menu():
     """ init user menu """
     choices: list = [
-        translate(LANGUAGE, 'menu', 'queue-task', use_prefixes=False),
-        translate(LANGUAGE, 'menu', 'equation-task', use_prefixes=False),
-        translate(LANGUAGE, 'menu', 'leave', use_prefixes=False),
+        translate(LANG, 'menu', 'queue-task', use_prefixes=False),
+        translate(LANG, 'menu', 'equation-task', use_prefixes=False),
+        translate(LANG, 'menu', 'leave', use_prefixes=False),
     ]
 
-    prompt: str = translate(LANGUAGE, 'menu', 'welcome', use_prefixes=False)
+    prompt: str = translate(LANG, 'menu', 'welcome', use_prefixes=False)
 
     while True:
         print(BANNER)
@@ -55,20 +50,20 @@ def home_menu():
                 equations_task_menu()
 
             case _ if choice == choices[-1]:
-                print(translate(LANGUAGE, 'menu', 'goodbye', '', use_prefixes=False))
+                print(translate(LANG, 'menu', 'goodbye', '', use_prefixes=False))
                 break
 
             case _:
-                print(translate(LANGUAGE, 'system', 'nuh', 'error'))
+                print(translate(LANG, 'system', 'nuh', 'error'))
 
 
 def queue_task_menu():
-    prompt = translate(LANGUAGE, 'queues', 'menu_prompt', '', use_prefixes=False)
+    prompt = translate(LANG, 'queues', 'menu_prompt', '', use_prefixes=False)
 
     choices: list = [
-        translate(LANGUAGE, 'queues', 'circular_queue', use_prefixes=False),
-        translate(LANGUAGE, 'queues', 'list_queue', use_prefixes=False),
-        translate(LANGUAGE, 'menu', 'return_back', use_prefixes=False),
+        translate(LANG, 'queues', 'circular_queue', use_prefixes=False),
+        translate(LANG, 'queues', 'list_queue', use_prefixes=False),
+        translate(LANG, 'menu', 'return_back', use_prefixes=False),
     ]
 
     while True:
@@ -83,11 +78,11 @@ def queue_task_menu():
 
                 min_, max_ = 1, 30  # queue size limits
 
-                size_prompt = translate(LANGUAGE, 'queues', 'enter_size', 'input', min=min_, max=max_)
+                size_prompt = translate(LANG, 'queues', 'enter_size', 'input', min=min_, max=max_)
                 size = pyip.inputInt(prompt=size_prompt, min=min_, max=max_)
                 queue = CircleQueue(size)
 
-                print(translate(LANGUAGE, 'queues', 'initialized', 'general', size=size))
+                print(translate(LANG, 'queues', 'initialized', 'general', size=size))
                 queue_menu(queue)
 
             case _ if choice == choices[1]:
@@ -95,29 +90,29 @@ def queue_task_menu():
                 queue_menu(queue)
 
             case _ if choice == choices[-1]:
-                print(translate(LANGUAGE, 'menu', 'return_goodbye', '', use_prefixes=False))
+                print(translate(LANG, 'menu', 'return_goodbye', '', use_prefixes=False))
                 break
 
             case _:
-                print(translate(LANGUAGE, 'system', 'nuh', 'error'))
+                print(translate(LANG, 'system', 'nuh', 'error'))
 
 
 def queue_menu(queue: CircleQueue | ListQueue):
     if isinstance(queue, CircleQueue):
-        queue_type: str = translate(LANGUAGE, 'queues',
+        queue_type: str = translate(LANG, 'queues',
                                     'circular_queue', '', use_prefixes=False)
     else:
-        queue_type: str = translate(LANGUAGE, 'queues', 'list_queue', use_prefixes=False)
+        queue_type: str = translate(LANG, 'queues', 'list_queue', use_prefixes=False)
 
-    prompt: str = translate(LANGUAGE, 'queues', 'control_menu_prompt',
+    prompt: str = translate(LANG, 'queues', 'control_menu_prompt',
                             use_prefixes=False, type=queue_type)
 
     choices: list = [
-        translate(LANGUAGE, 'queues', 'control_menu_add', use_prefixes=False),
-        translate(LANGUAGE, 'queues', 'control_menu_add_bulk', use_prefixes=False),
-        translate(LANGUAGE, 'queues', 'control_menu_delete', use_prefixes=False),
-        translate(LANGUAGE, 'queues', 'control_menu_status', use_prefixes=False),
-        translate(LANGUAGE, 'menu', 'return_back', use_prefixes=False)
+        translate(LANG, 'queues', 'control_menu_add', use_prefixes=False),
+        translate(LANG, 'queues', 'control_menu_add_bulk', use_prefixes=False),
+        translate(LANG, 'queues', 'control_menu_delete', use_prefixes=False),
+        translate(LANG, 'queues', 'control_menu_status', use_prefixes=False),
+        translate(LANG, 'menu', 'return_back', use_prefixes=False)
     ]
 
     while True:
@@ -129,7 +124,7 @@ def queue_menu(queue: CircleQueue | ListQueue):
 
         match choice:
             case _ if choice == choices[0]:
-                add_prompt = translate(LANGUAGE, 'system', 'input', 'input')
+                add_prompt = translate(LANG, 'system', 'input', 'input')
 
                 item = pyip.inputStr(prompt=add_prompt,
                                      strip=True,
@@ -137,7 +132,7 @@ def queue_menu(queue: CircleQueue | ListQueue):
                 queue.enqueue(item)
 
             case _ if choice == choices[1]:
-                bulk_prompt = translate(LANGUAGE, 'system', 'bulk_input', 'input')
+                bulk_prompt = translate(LANG, 'system', 'bulk_input', 'input')
                 items = pyip.inputStr(prompt=bulk_prompt, strip=True, blank=False)
                 [queue.enqueue(item) for item in items.split()]
 
@@ -148,23 +143,23 @@ def queue_menu(queue: CircleQueue | ListQueue):
                 queue.display()
 
             case _ if choice == choices[-1]:
-                print(translate(LANGUAGE, 'menu', 'return_goodbye', '', use_prefixes=False))
+                print(translate(LANG, 'menu', 'return_goodbye', '', use_prefixes=False))
                 break
 
             case _:
-                print(translate(LANGUAGE, 'system', 'nuh', 'error'))
+                print(translate(LANG, 'system', 'nuh', 'error'))
 
 
 def equations_task_menu():
     """ menu handler for equations task """
 
     choices: list = [
-        translate(LANGUAGE, 'equations', 'examples', use_prefixes=False),
-        translate(LANGUAGE, 'equations', 'own_equation', use_prefixes=False),
-        translate(LANGUAGE, 'menu', 'return_back', use_prefixes=False),
+        translate(LANG, 'equations', 'examples', use_prefixes=False),
+        translate(LANG, 'equations', 'own_equation', use_prefixes=False),
+        translate(LANG, 'menu', 'return_back', use_prefixes=False),
     ]
 
-    prompt: str = translate(LANGUAGE, 'equations', 'menu_prompt', use_prefixes=False)
+    prompt: str = translate(LANG, 'equations', 'menu_prompt', use_prefixes=False)
 
     while True:
         print(BANNER)
@@ -178,33 +173,62 @@ def equations_task_menu():
             case _ if choice == choices[1]:
                 equation_input_handler()
             case _ if choice == choices[-1]:
-                print(translate(LANGUAGE, 'menu', 'return_goodbye', '', use_prefixes=False))
+                print(translate(LANG, 'menu', 'return_goodbye', '', use_prefixes=False))
                 break
 
             case _:
-                print(translate(LANGUAGE, 'system', 'nuh', 'error'))
+                print(translate(LANG, 'system', 'nuh', 'error'))
 
 
 def equation_input_handler():
     """ handles user inputs for equations """
 
     prompt: str = translate(
-        LANGUAGE,
-        'equations',
-        'input',
-        'input'
+        LANG, 'equations', 'input', 'input'
     )
 
     while True:
-        equation = pyip.inputCustom(customValidationFunc=validation,
-                                    prompt=prompt,
-                                    blank=False,
-                                    strip=True,
-                                    blockRegexes=BANNED_REG)
-        print(equation)
+        equation, equation_type = pyip.inputCustom(
+            customValidationFunc=validation,
+            prompt=prompt,
+            blank=False,
+            strip=True,
+            blockRegexes=BANNED_REG
+        )
+
+        postfix = to_postfix(equation)
+
+        tprint(LANG, 'equations', 'equation', equation=equation)
+
+        tprint(LANG, 'equations', 'postfix_form',
+               use_prefixes=False, indent=INDENT, equation=" ".join(postfix))
+
+        if equation_type == 'digits':
+            tprint(LANG, 'equations', 'evaluation',
+                   use_prefixes=False, indent=INDENT, result=evaluate(postfix))
+
+        break
 
 
-def validation(equation: str) -> str:
+def validation(equation: str) -> (str, str):
+    """
+    Validates the given equation string in infix form.
+
+    This function checks the structure of the equation to ensure it is valid.
+
+    The following checks are performed:
+    - Parentheses are balanced and correctly matched.
+    - The equation contains both digits and valid operators.
+    - No two operators are consecutive.
+    - The equation does not start or end with an operator.
+    - The equation does not mix digits and alphabetic characters.
+    - The equation is at least 3 characters long and contains at least one operator.
+
+    :param equation: The equation in infix form to be validated.
+    :return: The validated equation if all checks pass and equation type (digits or alphabetic)
+    :raises pyip.ValidationException: If the equation is invalid according to the checks.
+    """
+
     stack = []
     operators: str = '+-*/'
 
@@ -218,23 +242,13 @@ def validation(equation: str) -> str:
         elif char == ')':
             if not stack or stack[-1] != '(':
                 raise pyip.ValidationException(
-                    translate(
-                        LANGUAGE,
-                        'equations',
-                        'error',
-                        'invalid_equation_math'
-                    )
+                    translate(LANG, 'equations', 'invalid_equation_math', 'error')
                 )
             stack.pop()
 
     if stack:
         raise pyip.ValidationException(
-            translate(
-                LANGUAGE,
-                'equations',
-                'error',
-                'invalid_equation_math'
-            )
+            translate(LANG, 'equations', 'invalid_equation_math', 'error')
         )
 
     prev_char: str = ''
@@ -243,50 +257,41 @@ def validation(equation: str) -> str:
             if i == 0 or i == len(equation) - 1:
                 # operator at the beginning or end
                 raise pyip.ValidationException(
-                    translate(
-                        LANGUAGE,
-                        'equations',
-                        'error',
-                        'invalid_equation_math'
-                    )
+                    translate(LANG, 'equations', 'invalid_equation_math', 'error')
                 )
             if prev_char in operators:
                 # two consecutive operators
                 raise pyip.ValidationException(
-                    translate(
-                        LANGUAGE,
-                        'equations',
-                        'error',
-                        'consecutive_operators'
-                    )
+                    translate(LANG, 'equations', 'consecutive_operators', 'error')
                 )
+
         prev_char = char
 
     if has_digit and has_alpha:
         raise pyip.ValidationException(
-            translate(
-                LANGUAGE,
-                'equations',
-                'error',
-                'invalid_structure'
-            )
+            translate(LANG, 'equations', 'invalid_structure', 'error')
         )
 
     if len(equation) < 3 or not any(op in equation for op in operators):
         raise pyip.ValidationException(
-            translate(
-                LANGUAGE,
-                'equations',
-                'error',
-                'no_operations'
-            )
+            translate(LANG, 'equations', 'no_operations', 'error')
         )
 
-    return equation
+    equation_type = 'digits' if has_digit else 'alpha'
+
+    return equation, equation_type
 
 
-def equations_example():
-    """ example handler for equations """
+def equations_example() -> None:
+    """
+    Displays predefined equations in both infix and postfix forms, and evaluates them if supported.
+
+    This function defines a set of predefined equations, converts each equation from
+    infix form to postfix form, and prints both forms.
+    If an equation supports evaluation, it evaluates the postfix form and prints the result.
+
+    :return: None
+    """
 
     equations: dict = {
         'eq1': {
@@ -319,20 +324,27 @@ def equations_example():
         infix = equation['infix']
         postfix = to_postfix(infix)
 
-        print(translate(LANGUAGE, 'equations',
-                        'equation', 'general', equation=infix))
+        print('\n')
+        tprint(LANG, 'equations', 'equation', equation=infix)
 
-        print(f'{INDENT}Postfix form: {" ".join(postfix)}')
+        tprint(LANG, 'equations', 'postfix_form',
+               use_prefixes=False, indent=INDENT, equation=" ".join(postfix))
 
         if equation['supports_evaluation']:
             result = evaluate(postfix)
-            print(f'{INDENT}Evaluation: {result}')
-        else:
-            print(f'{INDENT}Evaluation: equal to infix form')
+
+            tprint(LANG, 'equations', 'evaluation',
+                   use_prefixes=False, indent=INDENT, result=result)
 
 
 def evaluate(postfix):
-    """ evaluate postfix """
+    """
+    Evaluates a postfix (Reverse Polish Notation) expression
+
+    :param postfix: A string of symbols representing the postfix expression.
+    :return: The evaluated result of the postfix expression.
+    :raises ValueError: If an invalid symbol is encountered in the expression.
+    """
 
     result = 0
     stack: list = []

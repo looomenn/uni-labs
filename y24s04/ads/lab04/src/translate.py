@@ -32,9 +32,9 @@ def translate(
         },
         'eng': {
             'menu': '[Menu]',
-            'queues': '[Queues]',
-            'equations': '[Equations]',
-            'system': '[System]',
+            'queues': '[QEs]',
+            'equations': '[EQs]',
+            'system': '[SYS]',
         }
     }
 
