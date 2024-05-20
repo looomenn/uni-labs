@@ -1,0 +1,59 @@
+{
+    "ukr": {
+        "menu": {
+            "welcome": "\nЛаскаво просимо! Вибирайте свою програму долю:\n",
+            "goodbye": "Адіос... ",
+            "invalid_option": "Неправильний вибір, спробуйте ще раз",
+            "queue-task": "Завдання з чергами",
+            "equation-task": "Завдання з рівняннями",
+            "leave": "Завершити виконання (T_T)"
+        },
+        "queues": {
+            "item_added": "Додано {add_item} до черги",
+            "item_deleted": "Видалено '{delete_item}' з черги",
+            "initialized": "Черга ініціалізована",
+            "empty_queue": "Черга порожня :(",
+            "invalid_equation_math": "Невірне математичне рівняння"
+        },
+        "equations": {
+            "example": "Приклад рівняння:",
+            "input": "Введіть ваше рівняння: ",
+            "invalid_equation_math": "Невірне математичне рівняння",
+            "consecutive_operators": "Рівняння не може містити операторів, що йдуть підряд",
+            "invalid_structure": "Рівняння повинно складатися або зі змінних або з цифри",
+            "no_operations": "Рівняння повинно містити хоча б одну операцію"
+        },
+        "system": {
+            "nuh": "Який розумний. Тут таке не працює....",
+            "no_translation": "Переклад не знайдено",
+            "input": "Ввід: "
+        }
+    },
+    "eng": {
+        "menu": {
+            "welcome": "\nWelcome! Choose your destiny for now:\n",
+            "goodbye": "Goodbye!",
+            "invalid_option": "Invalid option, please try again."
+        },
+        "queues": {
+            "initialized": "Queue initialized.",
+            "item_added": "Enqueued '{add_item}'",
+            "item_deleted": "Dequeued '{delete_item}'",
+            "empty_queue": "Queue is empty :(",
+            "invalid_equation_math": "Invalid mathematical equation"
+        },
+        "equations": {
+            "example": "Example equation:",
+            "input": "Input your equation: ",
+            "invalid_equation_math": "Invalid mathematical equation",
+            "consecutive_operators": "An equation cannot contain consecutive operators",
+            "invalid_structure": "Equation must contain either only digits or only variables, but not both",
+            "no_operations": "Equation must contain at least one operation"
+        },
+        "system": {
+            "nuh": "Nuh uh... that won't work here",
+            "no_translation": "Translation not found",
+            "input": "Input: "
+        }
+    }
+}
