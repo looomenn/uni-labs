@@ -1,8 +1,7 @@
-
 import os
-from translate import translate
+from translate import tprint
 
-LANG:str = os.getenv('LANG', 'eng')
+LANG: str = os.getenv('LANG', 'eng')
 INDENT: str = '\t\t\t\t'
 
 
@@ -15,19 +14,20 @@ class CircleQueue:
 
     def enqueue(self, item):
         if (self.tail + 1) % self.size == self.head:
-            print(translate(LANG, 'queues', 'full_queue',
-                            'error', True, skip_item=item))
+            tprint(LANG, 'queues', 'full_queue',
+                   'error', True, skip_item=item)
         else:
             if self.head == -1:
                 self.head = 0
 
             self.tail = (self.tail + 1) % self.size
             self.queue[self.tail] = item
-            print(translate(LANG,'queues','item_added','add',True, add_item=item))
+
+            tprint(LANG, 'queues', 'item_added', 'add', True, add_item=item)
 
     def dequeue(self):
         if self.head == -1:
-            print(translate(LANG, 'queues', 'empty_queue', 'error', True))
+            tprint(LANG, 'queues', 'empty_queue', 'error', True)
 
         else:
             tmp = self.queue[self.head]
@@ -37,13 +37,13 @@ class CircleQueue:
             else:
                 self.head = (self.head + 1) % self.size
 
-            print(translate(LANG, 'queues', 'item_deleted', 'delete',
-                            True, delete_item=tmp))
+            tprint(LANG, 'queues', 'item_deleted', 'delete',
+                   True, delete_item=tmp)
             return tmp
 
     def display(self):
         if self.head == -1:
-            print(translate(LANG, 'queues', 'empty_queue', 'error', True))
+            tprint(LANG, 'queues', 'empty_queue', 'error', True)
         else:
             if self.tail >= self.head:
                 content = self.queue[self.head:self.tail + 1]
@@ -52,13 +52,13 @@ class CircleQueue:
                 content = self.queue[self.head:self.size] + self.queue[0:self.tail + 1]
                 fill = self.size - self.head + self.tail + 1
 
-            print(translate(LANG, 'queues', 'queue_status', 'general', True))
+            tprint(LANG, 'queues', 'queue_status', 'general', True)
 
-            print(translate(LANG, 'queues', 'queue_size',
-                            '', False, indent=INDENT, size=self.size))
+            tprint(LANG, 'queues', 'queue_size',
+                   use_prefixes=False, indent=INDENT, size=self.size)
 
-            print(translate(LANG, 'queues', 'queue_fullness','',
-                            False, indent=INDENT, fullness=f'{fill}/{self.size}'))
+            tprint(LANG, 'queues', 'queue_fullness', use_prefixes=False,
+                   indent=INDENT, fullness=f'{fill}/{self.size}')
 
-            print(translate(LANG, 'queues', 'queue_content','',
-                            False, indent=INDENT, content=content))
+            tprint(LANG, 'queues', 'queue_content',
+                   use_prefixes=False, indent=INDENT, content=content)

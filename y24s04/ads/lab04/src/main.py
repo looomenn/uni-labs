@@ -36,11 +36,13 @@ def home_menu():
 
     while True:
         print(BANNER)
-        choice = pyip.inputMenu(choices=choices,
-                                prompt=prompt,
-                                numbered=True,
-                                blank=False,
-                                default=1)
+        choice = pyip.inputMenu(
+            choices=choices,
+            prompt=prompt,
+            numbered=True,
+            blank=False,
+            default=1
+        )
 
         match choice:
             case _ if choice == choices[0]:
@@ -50,11 +52,11 @@ def home_menu():
                 equations_task_menu()
 
             case _ if choice == choices[-1]:
-                print(translate(LANG, 'menu', 'goodbye', '', use_prefixes=False))
+                tprint(LANG, 'menu', 'goodbye', '', use_prefixes=False)
                 break
 
             case _:
-                print(translate(LANG, 'system', 'nuh', 'error'))
+                tprint(LANG, 'system', 'nuh', 'error')
 
 
 def queue_task_menu():
@@ -68,21 +70,23 @@ def queue_task_menu():
 
     while True:
         print(BANNER)
-        choice = pyip.inputMenu(choices=choices,
-                                prompt=prompt,
-                                numbered=True,
-                                blank=False)
+        choice = pyip.inputMenu(
+            choices=choices,
+            prompt=prompt,
+            numbered=True,
+            blank=False
+        )
 
         match choice:
             case _ if choice == choices[0]:
 
                 min_, max_ = 1, 30  # queue size limits
-
                 size_prompt = translate(LANG, 'queues', 'enter_size', 'input', min=min_, max=max_)
                 size = pyip.inputInt(prompt=size_prompt, min=min_, max=max_)
-                queue = CircleQueue(size)
 
-                print(translate(LANG, 'queues', 'initialized', 'general', size=size))
+                tprint(LANG, 'queues', 'initialized', 'general', size=size)
+
+                queue = CircleQueue(size)
                 queue_menu(queue)
 
             case _ if choice == choices[1]:
@@ -90,11 +94,11 @@ def queue_task_menu():
                 queue_menu(queue)
 
             case _ if choice == choices[-1]:
-                print(translate(LANG, 'menu', 'return_goodbye', '', use_prefixes=False))
+                tprint(LANG, 'menu', 'return_goodbye', '', use_prefixes=False)
                 break
 
             case _:
-                print(translate(LANG, 'system', 'nuh', 'error'))
+                tprint(LANG, 'system', 'nuh', 'error')
 
 
 def queue_menu(queue: CircleQueue | ListQueue):
@@ -143,11 +147,11 @@ def queue_menu(queue: CircleQueue | ListQueue):
                 queue.display()
 
             case _ if choice == choices[-1]:
-                print(translate(LANG, 'menu', 'return_goodbye', '', use_prefixes=False))
+                tprint(LANG, 'menu', 'return_goodbye', '', use_prefixes=False)
                 break
 
             case _:
-                print(translate(LANG, 'system', 'nuh', 'error'))
+                tprint(LANG, 'system', 'nuh', 'error')
 
 
 def equations_task_menu():
@@ -173,19 +177,17 @@ def equations_task_menu():
             case _ if choice == choices[1]:
                 equation_input_handler()
             case _ if choice == choices[-1]:
-                print(translate(LANG, 'menu', 'return_goodbye', '', use_prefixes=False))
+                tprint(LANG, 'menu', 'return_goodbye', '', use_prefixes=False)
                 break
 
             case _:
-                print(translate(LANG, 'system', 'nuh', 'error'))
+                tprint(LANG, 'system', 'nuh', 'error')
 
 
 def equation_input_handler():
     """ handles user inputs for equations """
 
-    prompt: str = translate(
-        LANG, 'equations', 'input', 'input'
-    )
+    prompt: str = translate(LANG, 'equations', 'input', 'input')
 
     equation, equation_type = pyip.inputCustom(
         customValidationFunc=validation,
