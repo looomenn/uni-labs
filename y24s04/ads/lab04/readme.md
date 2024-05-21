@@ -32,7 +32,7 @@ conda create --name ads python=3.11
 ```
 
 ```zsh
-conda install pyinputplus numpy
+conda install pyinputplus python-dotenv
 ```
 
 ### Appendix
