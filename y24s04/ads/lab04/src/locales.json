@@ -34,13 +34,11 @@
             "menu_prompt": "\nНу... рівняння, шо тут ще сказати...\n?Як я можу допомогти?\n",
             "examples": "Покажи приклади рівнянь",
             "own_equation": "Хочу ввести своє рівняння",
-
             "equation": "Рівняння: {equation}",
             "postfix_form": "{indent}Постфіксна форма: {equation}",
             "evaluation": "{indent}Результат обчислення: {evaluation}",
             "evaluation_not_supported": "{indent}Результат обчислення дорівнює постфіксній формі",
             "input": "Введіть рівняння у інфіксному форматі",
-
             "invalid_equation_math": "Невірне математичне рівняння",
             "consecutive_operators": "Рівняння не може містити операторів, що йдуть підряд",
             "invalid_structure": "Рівняння повинно складатися або зі змінних або з цифри",
@@ -50,7 +48,10 @@
             "nuh": "Який розумний. Тут таке не працює....",
             "no_translation": "Переклад не знайдено",
             "input": "Введіть бажаний елемент: ",
-            "bulk_input": "Введіть бажані елементи, розділяючи їх пробілами: "
+            "bulk_input": "Введіть бажані елементи, розділяючи їх пробілами: ",
+            "select_language": "\nЯкою мовою спілкуємося сьогодні?\n",
+            "selected_language": "Ага, завантажую {lang} розмовний пакет ",
+            "silent": "Та, не хочу вже"
         }
     },
     "eng": {
@@ -103,7 +104,10 @@
             "nuh": "Nuh uh... that won't work here",
             "no_translation": "Translation not found",
             "input": "Enter the desired item: ",
-            "bulk_input": "Enter the desired items, separating them with spaces: "
+            "bulk_input": "Enter the desired items, separating them with spaces: ",
+            "select_language": "\nWhat language are we speakin' today?\n",
+            "selected_language": "Okay, learning {lang}... language package",
+            "silent": "Nah.."
         }
     }
 }
