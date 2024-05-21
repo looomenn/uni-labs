@@ -3,13 +3,18 @@ Course: ADS'4
 Lab: 04
 """
 
+import os
 import pyinputplus as pyip
 
 from ListQueue import ListQueue
 from CircleQueue import CircleQueue
-from translate import translate, tprint
 
-LANG: str = 'eng'
+from translate import translate, tprint
+from dotenv import load_dotenv
+
+load_dotenv()
+
+LANG: str = os.getenv('LANG')
 DEBUG: bool = False
 INDENT: str = '\t\t\t'
 BANNER: str = r""" 
@@ -24,11 +29,30 @@ BANNED_REG = [
 ]
 
 
+def set_lang(lang: str) -> None:
+    global LANG
+    LANG = lang
+
+    dotenv_file = '.env'
+    if os.path.exists(dotenv_file):
+        with open(dotenv_file, 'r') as file:
+            lines = file.readlines()
+        with open(dotenv_file, 'w') as file:
+            for line in lines:
+                if not line.startswith('LANG='):
+                    file.write(line)
+            file.write(f'LANG={lang}\n')
+    else:
+        with open(dotenv_file, 'w') as file:
+            file.write(f'LANG={lang}\n')
+
+
 def home_menu() -> None:
     """
     Main menu handler
     @return: None
     """
+
     choices: list = [
         translate(LANG, 'menu', 'queue-task', use_prefixes=False),
         translate(LANG, 'menu', 'equation-task', use_prefixes=False),
@@ -60,6 +84,53 @@ def home_menu() -> None:
 
             case _:
                 tprint(LANG, 'system', 'nuh', 'error')
+
+
+def language_selector() -> None:
+    """
+    Gives ability to changes the language of the program
+    @return: None
+    """
+
+    prompt: str = translate(LANG, 'system', 'select_language', use_prefixes=False)
+
+    choices: list = [
+        'Українська',
+        'English',
+        translate(LANG, 'system', 'silent', use_prefixes=False)
+    ]
+
+    while True:
+        print(BANNER)
+        choice = pyip.inputMenu(
+            choices=choices,
+            prompt=prompt,
+            numbered=True,
+            blank=False,
+            default=1
+        )
+
+        match choice:
+            case _ if choice == choices[0]:
+                set_lang('ukr')
+                tprint(LANG, 'system', 'selected_language',
+                       use_prefixes=False, lang='UKR')
+                break
+
+            case _ if choice == choices[1]:
+                set_lang('eng')
+                tprint(LANG, 'system', 'selected_language',
+                       use_prefixes=False, lang='ENG')
+                break
+
+            case _ if choice == choices[-1]:
+                tprint(LANG, 'menu', 'goodbye', '', use_prefixes=False)
+                quit()
+
+            case _:
+                tprint(LANG, 'system', 'nuh', 'error')
+
+
 
 
 def queue_task_menu() -> None:
@@ -449,6 +520,7 @@ def to_postfix(equation: str) -> list:
 
 def main() -> None:
     """ main entry point """
+    language_selector()
     home_menu()
 
 
