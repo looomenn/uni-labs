@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-LANG: str = os.getenv('LANG')
+LANG: str = os.getenv('LANG', 'ukr')
 DEBUG: bool = False
 INDENT: str = '\t\t\t'
 BANNER: str = r""" 
@@ -129,8 +129,6 @@ def language_selector() -> None:
 
             case _:
                 tprint(LANG, 'system', 'nuh', 'error')
-
-
 
 
 def queue_task_menu() -> None:
