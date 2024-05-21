@@ -24,8 +24,11 @@ BANNED_REG = [
 ]
 
 
-def home_menu():
-    """ init user menu """
+def home_menu() -> None:
+    """
+    Main menu handler
+    @return: None
+    """
     choices: list = [
         translate(LANG, 'menu', 'queue-task', use_prefixes=False),
         translate(LANG, 'menu', 'equation-task', use_prefixes=False),
@@ -59,7 +62,12 @@ def home_menu():
                 tprint(LANG, 'system', 'nuh', 'error')
 
 
-def queue_task_menu():
+def queue_task_menu() -> None:
+    """
+    Menu handler for queue task
+    @return: None
+    """
+
     prompt = translate(LANG, 'queues', 'menu_prompt', '', use_prefixes=False)
 
     choices: list = [
@@ -101,7 +109,12 @@ def queue_task_menu():
                 tprint(LANG, 'system', 'nuh', 'error')
 
 
-def queue_menu(queue: CircleQueue | ListQueue):
+def queue_menu(queue: CircleQueue | ListQueue) -> None:
+    """
+    Menu for controlling the queue
+    @param queue: CircleQueue or ListQueue object
+    @return:None
+    """
     if isinstance(queue, CircleQueue):
         queue_type: str = translate(LANG, 'queues',
                                     'circular_queue', '', use_prefixes=False)
@@ -154,8 +167,11 @@ def queue_menu(queue: CircleQueue | ListQueue):
                 tprint(LANG, 'system', 'nuh', 'error')
 
 
-def equations_task_menu():
-    """ menu handler for equations task """
+def equations_task_menu() -> None:
+    """
+    Menu handler for equations task
+    @return: None
+    """
 
     choices: list = [
         translate(LANG, 'equations', 'examples', use_prefixes=False),
@@ -184,8 +200,12 @@ def equations_task_menu():
                 tprint(LANG, 'system', 'nuh', 'error')
 
 
-def equation_input_handler():
-    """ handles user inputs for equations """
+def equation_input_handler() -> None:
+    """
+    Handles user inputs for equations, converts them to postfix form, and prints the results.
+
+    @return: None
+    """
 
     prompt: str = translate(LANG, 'equations', 'input', 'input')
 
@@ -374,8 +394,12 @@ def evaluate(postfix):
     return stack[0]
 
 
-def to_postfix(equation):
-    """ converts infix to postfix form """
+def to_postfix(equation: str) -> list:
+    """
+    Converts an infix expression to postfix form (Reverse Polish Notation).
+    @param equation: The infix expression to be converted.
+    @return: Converted postfix expression
+    """
     priority: dict = {'+': 1, '-': 1, '*': 2, '/': 2}
     stack: list = []
     result: list = []
@@ -423,7 +447,7 @@ def to_postfix(equation):
     return result
 
 
-def main():
+def main() -> None:
     """ main entry point """
     home_menu()
 
