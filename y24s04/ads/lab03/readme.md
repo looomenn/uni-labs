@@ -1,6 +1,6 @@
 ---
 Course: ADS4
-Points: "? / 8"
+Points: 1 / 8
 Variant: 1
 Dedline: 2024-04-06
 Done?: true
