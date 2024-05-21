@@ -2,6 +2,9 @@
 
 import os
 from translate import translate, tprint
+from dotenv import load_dotenv
+
+load_dotenv()
 
 LANG: str = os.getenv('LANG', 'eng')
 INDENT: str = '\t\t\t\t'
