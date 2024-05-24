@@ -88,7 +88,7 @@ conda install pyinputplus python-dotenv
 
 ![](assets/Pasted%20image%2020240521203524.png)
 
-Приклади рівнянь, це ї є рівяння, які були вказані в умові. 
+Приклади рівнянь (де-факто, це рівняння з умови [Objectives](Objectives (частина 2)))
 
 ![](assets/Pasted%20image%2020240521203807.png)
 
