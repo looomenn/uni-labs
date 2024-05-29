@@ -3,17 +3,30 @@ Course: DPAT
 Lab: 03
 """
 
-import vhi
+import vhi  # овоʼязковий імпорт для отримання даних з NOAA
 import pandas as pd
 
 from spyre import server
 import matplotlib.pyplot as plt
 
-# vhi.fetch_bulk(1, 27, 1982, 2023)
+# True - буде закачувати файли з NOAA при кожному запуску.
+# Обовʼязково при першому запуску.
+FETCH: bool = False
+
+if FETCH: vhi.fetch_bulk(1, 27, 1982, 2023)
 DATAFRAME = vhi.get_dataframe(vhi.DUMP_FOLDER)
 
 
-def error_plot(text, ax):
+def error_plot(
+        text: str,
+        ax: plt.Axes
+) -> None:
+    """
+    Функція, яка додає на графік вказаний текст.
+    :param text: Текст, який треба відобразити
+    :param ax: Осі з ініціалізованого plt.subplots()
+    :return: None
+    """
     ax.text(0.5, 0.5, text,
             fontsize=15, ha='center', va='center', wrap=True)
     ax.set_axis_off()
@@ -94,73 +107,89 @@ class VhiVisualizer(server.App):
         }
     ]
 
-    @staticmethod
+    @staticmethod  # заглушка для PEP8 :/
     def getData(params, **kwargs):
+
+        # отримуємо з params усе необхідне
         index = params.get('index', 'VHI')
         region_id = int(params.get('region', DATAFRAME['PID'].iloc[0]))
         months = params.get('months', '1-3')
-
         start_year, end_year = int(params.get('start_year', '2000')), int(params.get('end_year', '2013'))
         start_month, end_month = map(int, months.split('-'))
 
+        # перераховуємо місяці в тижні
         start_week = round((start_month - 1) * 4.33 + 1)
         end_week = round(end_month * 4.33)
 
+        # перевіряємо, щоб ми не поїхали у віʼдємне майбунє
         if start_week > end_week:
             return pd.DataFrame(
                 {
                     "Error": [f"The start month ({start_month}) cannot be larger than the end month ({end_month})"]
-                },
-                index=[0]
+                }
             )
 
+        # аналогічна перевірка тільки для роцьків
         if start_year > end_year:
             return pd.DataFrame(
                 {
                     "Error": [f"The start year ({start_year}) cannot be larger than the end year ({end_year})"]
-                },
-                index=[0]
+                }
             )
 
+        # формуємо фільтрований датафрейм
         filtered_df = DATAFRAME[(DATAFRAME['PID'] == region_id) &
                                 (DATAFRAME['Year'] >= start_year) &
                                 (DATAFRAME['Year'] <= end_year) &
                                 (DATAFRAME['Week'] >= start_week) &
                                 (DATAFRAME['Week'] <= end_week)].copy()
 
+        # магічний синтаксис бо ✨дейта клінінг✨від чату гепете (бо шось цього не було реалізовано в першій лабі лол)
         filtered_df = filtered_df[~filtered_df.isin([-1]).any(axis=1)]
 
+        # міняємо айдішнік обласного центру на відповідну назву
         province_name = vhi.get_province(region_id)
         filtered_df.loc[:, 'Province'] = province_name
 
+        # повертаємо фінальний датафрейм з відповідними стовпчиками
         return filtered_df[['Province', 'Year', 'Week', index]]
 
     def getPlot(self, params):
-        fig, ax = plt.subplots()
+        """ функція для створення графіку """
+
+        # отримуємо шо на треба для попередньої валідації
         start_year, end_year = int(params.get('start_year', '2023')), int(params.get('end_year', '2023'))
         start_month, end_month = map(int, params.get('months', '1-3').split('-'))
+        index = params.get('index', 'VHI')
 
+        # ініціалізація полотна
+        fig, ax = plt.subplots()
+
+        # валідація відʼємного майбунього
         if start_month > end_month:
             error_plot(f'The start month ({start_month}) cannot be larger than the end month ({end_month})', ax)
             return fig
 
+        # валідація для можливості хоч шось там прочитати
         if end_year - start_year > 5:
             error_plot(f'For the plot, the difference between'
                        f' the start ({start_year}) and end ({end_year}) years can\'t be larger than 5.', ax)
             return fig
 
+        # валідація відʼємного майбунього номер два
         if start_year > end_year:
             error_plot(f'Start year ({start_year}) cannot be larger that end year ({end_year}) ', ax)
             return fig
 
+        # отримуємо датафрейм з попередньої функції
         filtered_df = self.getData(params)
-        index = params.get('index', 'VHI')
 
-        # Initialize the plot and create a new figure
-        colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'orange', 'purple', 'brown']  # List of colors
+        # робимо список з кольорами, для візуального розділення кожного року
+        colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'orange', 'purple', 'brown']
 
+        # малюємо графікі
         for i, year in enumerate(filtered_df['Year'].unique()):
-            year_data = filtered_df[filtered_df['Year'] == year].set_index('Week').drop(columns=['Year'])
+            year_data = filtered_df[filtered_df['Year'] == year].set_index('Week')
             ax.plot(year_data.index, year_data[index], color=colors[i % len(colors)], marker='o', label=f"Year {year}")
 
         ax.set_ylabel(index)
@@ -267,7 +296,7 @@ class VhiVisualizer(server.App):
 
 
 def main():
-    # vhi.clear_dump_folder(vhi.DUMP_FOLDER)
+    if FETCH: vhi.clear_dump_folder(vhi.DUMP_FOLDER)
 
     app = VhiVisualizer()
     app.launch()
