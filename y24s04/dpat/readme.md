@@ -16,6 +16,7 @@
 
 | Lab             | Status | Points |
 | --------------- | ------ | ------ |
-| [Lab02](lab02/) | WIP    | TDB    |
+| [Lab02](lab02/) | Done   | 3      |
+| [Lab03](lab03/) | Done   | TBD    |
 
 
