@@ -1,6 +1,6 @@
 ---
 Course: DPAT4
-Points: "? / 10"
+Points: 4 / 10
 Variant: 1
 Dedline: 2024-05-30
 Done?: true
