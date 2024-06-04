@@ -53,11 +53,14 @@ conda activate da
 ```
 
 ```
-pip install jupyterlab notebook pandas matplotlib numpy seaborn scipy scikit-learn
+pip install jupyterlab notebook pandas matplotlib numpy seaborn scipy
 ```
 
 
 ### Appendix
+
+- [level1](src/level1.ipynb)
+- [level2](src/level2.ipynb)
 
 #### Перший рівень
 
