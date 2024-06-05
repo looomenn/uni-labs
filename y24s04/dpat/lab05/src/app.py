@@ -27,11 +27,13 @@ app = dash.Dash(
 app.title = "Harmonic Visualisation"
 
 initial_values = {
-    'amplitude': {'value': 1.0, 'min': 0.1, 'max': 10.0},
+    'amplitude': {'value': 1.0, 'min': 0.1, 'max': 5.0},
     'frequency': {'value': 1, 'min': 0.1, 'max': 10.0},
     'phase': {'value': 0, 'min': 0.0, 'max': 2 * np.pi},
     'noise_mean': {'value': 0.0, 'min': -1.0, 'max': 1.0},
     'noise_covariance': {'value': 0.1, 'min': 0.0, 'max': 1.0},
+    'filter_order': {'value': 4, 'min': 0, 'max': 10},
+    'cutoff_frequency': {'value': 1.0, 'min': 0.01, 'max': 0.5}
 }
 
 ids = {'buttons': [], 'sliders': [], 'checklists': []}
@@ -52,7 +54,7 @@ def build_sliders():
     for key, value in initial_values.items():
         slider_id = key + '-input'
         ids['sliders'].append(slider_id)
-        step_size = (value['max'] - value['min']) // 100
+        step_size = round((value['max'] - value['min']) // 40)
 
         slider = html.Div(
             children=[
@@ -60,11 +62,10 @@ def build_sliders():
                 dcc.Slider(
                     id=slider_id,
                     min=value['min'],
-                    max=value['max'],
+                    max=round(value['max']),
                     step=step_size,
                     value=value['value'],
                     className="dbc mb-4",
-                    marks=None,
                     tooltip={"placement": "bottom", "always_visible": True},
                 )
             ]
@@ -75,20 +76,24 @@ def build_sliders():
     return sliders
 
 
-def build_switch():
-    html_id = 'switch-input'
-    ids['checklists'].append(html_id)
+def build_switches():
+    ids['checklists'].append('switch-input')
+    # ids['checklists'].append('filter-input')
+    # ids['checklists'].append('several-input')
 
     return html.Div(
         children=[
             dbc.Label('Additional settings'),
             dbc.Checklist(
-                id=html_id,
+                id='switch-input',
                 value=[1],
                 switch=True,
                 options=[
-                    {"label": "Show noise", "value": 1}
+                    {"label": "Show noise", "value": 1},
+                    {"label": "Show filter", "value": 2},
+                    {"label": "Split graphs", "value": 3},
                 ],
+                inline=True,
                 className="mb-4"
             )
         ]
@@ -127,7 +132,7 @@ def build_settings():
                 html.Br(),
                 *build_sliders(),
                 html.Hr(),
-                build_switch(),
+                build_switches(),
                 build_buttons()
             ]
         ),
@@ -159,7 +164,7 @@ app.layout = dbc.Container(
         )
     ],
     fluid=True,
-    className="container-md"
+    className="container-lg"
 )
 
 
@@ -175,13 +180,18 @@ def update_inputs(*args):
     button_id = ctx.triggered[0]['prop_id'].split('.')[0]
 
     if 'reset-button' in button_id:
-        return [initial_values[slider_id.split('-')[0]]['value'] for slider_id in ids['sliders']]
+        return [
+            initial_values[
+                slider_id.split('-')[0]
+            ]['value'] for slider_id in ids['sliders']
+        ]
 
     if 'random-button' in button_id:
         return [
-            np.random.uniform(initial_values[slider_id.split('-')[0]]['min'],
-                              initial_values[slider_id.split('-')[0]]['max'])
-            for slider_id in ids['sliders']
+            np.random.uniform(
+                initial_values[slider_id.split('-')[0]]['min'],
+                initial_values[slider_id.split('-')[0]]['max']
+            ) for slider_id in ids['sliders']
         ]
 
 
@@ -191,9 +201,14 @@ noise_cache = {}
 @app.callback(
     Output('graph', 'figure'),
     [Input(slider_id, 'value') for slider_id in ids['sliders']],
-    [Input('switch-input', 'value')]
+    Input('switch-input', 'value')
 )
-def update_graph(amplitude, frequency, phase, noise_mean, noise_covariance, show_noise):
+def update_graph(*args):
+    slider_values = args[:-1]
+    amplitude, frequency, phase, noise_mean, noise_covariance, filter_order, cutoff_frequency = slider_values
+
+    switch_value = args[-1]
+
     noise_key = (noise_mean, noise_covariance)
     t = np.linspace(0, 2 * np.pi, 500)
 
@@ -203,7 +218,7 @@ def update_graph(amplitude, frequency, phase, noise_mean, noise_covariance, show
     noise = noise_cache[noise_key]
 
     harmonic = amplitude * np.sin(frequency * t + phase)
-    signal = harmonic + noise if 1 in show_noise else harmonic
+    signal = harmonic + noise if 1 in switch_value else harmonic
 
     # Create the figure
     figure = {
