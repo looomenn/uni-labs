@@ -62,7 +62,4 @@ pip install pandas numpy dash dash-bootstrap-components scipy
 
 ![](assets/Pasted%20image%2020240607015140.png)
 
- 
-![](assets/test.mov)
-
-(720p cause github limit :/)
+https://github.com/looomenn/uni-labs/assets/39407654/c222623d-2faf-44c5-815b-acda52928ee5
