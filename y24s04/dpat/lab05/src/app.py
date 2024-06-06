@@ -28,7 +28,7 @@ DEFAULTS: dict = {
     'noise_mean': {'value': 0.0, 'min': -1.0, 'max': 1.0, 'step': '?', 'category': 'noise'},
     'noise_covariance': {'value': 0.1, 'min': 0.0, 'max': 1.0, 'step': '?', 'category': 'noise'},
     'filter_order': {'value': 4, 'min': 1, 'max': 10, 'step': '?', 'category': 'filter'},
-    'cutoff_frequency': {'value': 0.02, 'min': 0.01, 'max': 0.08, 'step': '?', 'category': 'fiter'}
+    'cutoff_frequency': {'value': 0.02, 'min': 0.01, 'max': 0.08, 'step': '?', 'category': 'filter'}
 }
 
 
@@ -56,18 +56,16 @@ def build_header():
         children=[
             html.H4('Harmonic Visualisation'),
         ],
-        className="pt-5 pb-3"
+        className="pt-3 pb-3"
     )
 
 
-def build_slider(
-        name: str,
-        config: dict
-):
+def build_slider(name: str, config: dict):
     step = config['step'] if '?' not in config['step'] \
         else calc_steps(config['min'], config['max'], 5)
 
     slider_div_id = name + '-div'
+    category = config['category']
 
     slider = html.Div(
         id=slider_div_id,
@@ -89,10 +87,18 @@ def build_slider(
     return slider
 
 
+def build_categorial_sliders(defaults, category):
+    return [
+        build_slider(name, config)
+        for name, config
+        in defaults.items()
+        if config['category'] == category
+    ]
+
+
 def build_switches():
     return html.Div(
         children=[
-            dbc.Label('Additional settings'),
             dbc.Checklist(
                 id='switch-input',
                 value=['show_noise'],
@@ -130,47 +136,51 @@ def build_buttons():
     )
 
 
-def build_sliders_card(name, config, category):
-
-    slider = build_slider(name, config)
-
-    return dbc.Card(
-        dbc.CardBody(
-            childer=[
-                html.H4(f'{category.title()} settings',
-                        className="card-title"),
-                html.Hr(),
-                dbc.Form(
-                    id=category + '-settings',
-                    children=[
-                        slider
-                    ]
-                )
-            ]
-        )
-    )
-
-
 def build_settings():
     sliders: list = [build_slider(name, config) for name, config in DEFAULTS.items()]
 
-    return dbc.Card(
-        dbc.CardBody(
-            children=[
-                html.H5('Function settings', className="card-title"),
-                html.Br(),
-                dbc.Form(
-                    id='settings-form',
-                    children=[
-                        *sliders,
-                        html.Hr(),
-                        build_switches(),
-                        build_buttons()
-                    ]
-                ),
-            ]
-        )
-    )
+    function_settings = dbc.Col([dbc.Card([
+        dbc.CardHeader('Function Settings'),
+        dbc.CardBody([
+            dbc.Form([
+                *build_categorial_sliders(DEFAULTS, 'function'),
+            ])
+        ])
+    ])
+    ])
+
+    noise_settings = dbc.Col([dbc.Card([
+        dbc.CardHeader('Noise Settings'),
+        dbc.CardBody([
+            dbc.Form([
+                *build_categorial_sliders(DEFAULTS, 'noise'),
+            ])
+        ])
+    ])
+    ])
+
+    filter_settings = dbc.Col([
+        dbc.Card([
+            dbc.CardHeader('Filter Settings'),
+            dbc.CardBody([
+                dbc.Form([
+                    *build_categorial_sliders(DEFAULTS, 'filter'),
+                ])
+            ])
+        ])
+    ])
+
+    general_settings = dbc.Col([
+        dbc.Card([
+            dbc.CardHeader('General Settings'),
+            dbc.CardBody([
+                build_switches(),
+                build_buttons()
+            ])
+        ])
+    ])
+
+    return [function_settings, noise_settings, filter_settings, general_settings]
 
 
 @app.callback(
@@ -374,27 +384,24 @@ app.layout = dbc.Container(
             children=[
                 dbc.Row(
                     children=[
-                        dbc.Col(
-                            build_settings(),
-                            md=3
-                        ),
-                        dbc.Col(
+                        *build_settings()
+                    ]
+                ),
+                dbc.Row(
+                    children=[
+                        dbc.Spinner(
                             children=[
-                                dbc.Spinner(
+                                dcc.Graph(id='graph'),
+                                html.Div(
+                                    className="d-flex flex-column mh-30",
                                     children=[
-                                        dcc.Graph(id='graph'),
-                                        html.Div(
-                                            className="d-flex flex-column mh-30",
-                                            children=[
-                                                dcc.Graph(id='harmonic-graph', style={'display': 'none'}),
-                                                dcc.Graph(id='signal-graph', style={'display': 'none'}),
-                                                dcc.Graph(id='filter-graph', style={'display': 'none'})
-                                            ]
-                                        )
-                                    ],
-                                    delay_show=200
+                                        dcc.Graph(id='harmonic-graph', style={'display': 'none'}),
+                                        dcc.Graph(id='signal-graph', style={'display': 'none'}),
+                                        dcc.Graph(id='filter-graph', style={'display': 'none'})
+                                    ]
                                 )
-                            ]
+                            ],
+                            delay_show=200
                         )
                     ]
                 )
