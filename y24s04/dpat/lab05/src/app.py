@@ -22,7 +22,7 @@ app = dash.Dash(
 
 # Dict for default values of each input
 DEFAULTS: dict = {
-    'amplitude': {'value': 1.0, 'min': 0.1, 'max': 10.0, 'step': '?', 'category': 'function'},
+    'amplitude': {'value': 1.0, 'min': 1, 'max': 10.0, 'step': '?', 'category': 'function'},
     'frequency': {'value': 1, 'min': 0.1, 'max': 10.0, 'step': '?', 'category': 'function'},
     'phase': {'value': 0, 'min': 0.0, 'max': round(2 * np.pi), 'step': '?', 'category': 'function'},
     'noise_mean': {'value': 0.0, 'min': -1.0, 'max': 1.0, 'step': '?', 'category': 'noise'},
@@ -65,7 +65,6 @@ def build_slider(name: str, config: dict):
         else calc_steps(config['min'], config['max'], 5)
 
     slider_div_id = name + '-div'
-    category = config['category']
 
     slider = html.Div(
         id=slider_div_id,
@@ -104,9 +103,9 @@ def build_switches():
                 value=['show_noise'],
                 switch=True,
                 options=[
-                    {"label": "Show noise", "value": 'show_noise'},
-                    {"label": "Show filter", "value": 'show_filter'},
-                    {"label": "Split graphs", "value": 'split_graph'},
+                    {"label": "Noise?", "value": 'show_noise'},
+                    {"label": "Filter?", "value": 'show_filter'},
+                    {"label": "Split graphs?", "value": 'split_graph'},
                 ],
                 inline=True,
                 className="mb-4"
@@ -139,24 +138,26 @@ def build_buttons():
 def build_settings():
     sliders: list = [build_slider(name, config) for name, config in DEFAULTS.items()]
 
-    function_settings = dbc.Col([dbc.Card([
-        dbc.CardHeader('Function Settings'),
-        dbc.CardBody([
-            dbc.Form([
-                *build_categorial_sliders(DEFAULTS, 'function'),
+    function_settings = dbc.Col([
+        dbc.Card([
+            dbc.CardHeader('Function Settings'),
+            dbc.CardBody([
+                dbc.Form([
+                    *build_categorial_sliders(DEFAULTS, 'function'),
+                ])
             ])
         ])
-    ])
     ])
 
-    noise_settings = dbc.Col([dbc.Card([
-        dbc.CardHeader('Noise Settings'),
-        dbc.CardBody([
-            dbc.Form([
-                *build_categorial_sliders(DEFAULTS, 'noise'),
+    noise_settings = dbc.Col([
+        dbc.Card([
+            dbc.CardHeader('Noise Settings'),
+            dbc.CardBody([
+                dbc.Form([
+                    *build_categorial_sliders(DEFAULTS, 'noise'),
+                ])
             ])
         ])
-    ])
     ])
 
     filter_settings = dbc.Col([
@@ -170,15 +171,19 @@ def build_settings():
         ])
     ])
 
-    general_settings = dbc.Col([
-        dbc.Card([
-            dbc.CardHeader('General Settings'),
-            dbc.CardBody([
-                build_switches(),
-                build_buttons()
+    general_settings = dbc.Col(
+        md=4,
+        children=
+        [
+            dbc.Card([
+                dbc.CardHeader('General Settings'),
+                dbc.CardBody([
+                    build_switches(),
+                    build_buttons()
+                ])
             ])
-        ])
-    ])
+        ]
+    )
 
     return [function_settings, noise_settings, filter_settings, general_settings]
 
@@ -253,14 +258,18 @@ noise_cache = {}
 
 @app.callback(
     [
-        Output('graph', 'figure'),
+        Output('combined-graph', 'figure'),
         Output('harmonic-graph', 'figure'),
         Output('signal-graph', 'figure'),
         Output('filter-graph', 'figure'),
-        Output('graph', 'style'),
-        Output('harmonic-graph', 'style'),
-        Output('signal-graph', 'style'),
-        Output('filter-graph', 'style')
+        Output('combined-graph-col', 'style'),
+        Output('harmonic-graph-col', 'style'),
+        Output('signal-graph-col', 'style'),
+        Output('filter-graph-col', 'style'),
+        Output('combined-graph-col', 'width'),
+        Output('harmonic-graph-col', 'width'),
+        Output('signal-graph-col', 'width'),
+        Output('filter-graph-col', 'width')
     ],
     [
         Input('amplitude', 'value'),
@@ -311,38 +320,43 @@ def update_graph(
     else:
         filtered_signal = signal
 
+    graph_margin: dict = {'l': 30, 'r': 25, 't': 25, 'b': 40}
+
     harmonic_graph = {
         'data': [
-            go.Scatter(x=t, y=harmonic, mode='lines', name='Harmonic', line=dict(dash='dash'))
+            go.Scatter(x=t, y=harmonic, mode='lines', name='Harmonic',  line={'color': '#1f77b4'})
         ],
         'layout': {
             'title': 'Harmonic Function',
             'xaxis': {'title': 'Time'},
-            'yaxis': {'title': 'Amplitude'}
+            'yaxis': {'title': 'Amplitude'},
+            'margin': graph_margin,
         }
     }
 
     signal_fig = {
         'data': [
-            go.Scatter(x=t, y=signal, mode='lines', name='Noisy Signal')
+            go.Scatter(x=t, y=signal, mode='lines', name='Noisy Signal',  line={'color': '#ff7f0f'})
         ],
         'layout': {
             'autosize': True,
             'title': 'Noisy Signal',
             'xaxis': {'title': 'Time'},
-            'yaxis': {'title': 'Amplitude'}
+            'yaxis': {'title': 'Amplitude'},
+            'margin': graph_margin,
         }
     }
 
     filtered_fig = {
         'data': [
-            go.Scatter(x=t, y=filtered_signal, mode='lines', name='Filtered Signal')
+            go.Scatter(x=t, y=filtered_signal, mode='lines', name='Filtered Signal', line={'color': '#2ba02b'})
         ],
         'layout': {
             'autosize': True,
             'title': 'Filtered Signal',
             'xaxis': {'title': 'Time'},
-            'yaxis': {'title': 'Amplitude'}
+            'yaxis': {'title': 'Amplitude'},
+            'margin': graph_margin,
         }
     }
 
@@ -356,31 +370,54 @@ def update_graph(
             'autosize': True,
             'title': 'Harmonic Function with Noise',
             'xaxis': {'title': 'Time'},
-            'yaxis': {'title': 'Amplitude'}
+            'yaxis': {'title': 'Amplitude'},
+            'margin': graph_margin,
         }
     }
 
     if split_graph:
-        combined_graph_style = {"display": "none"}
-        harmonic_graph_style = {"display": "block"}
-        signal_graph_style = {"display": "block"} if show_noise else {"display": "none"}
-        filtered_graph_style = {"display": "block"} if show_filter else {"display": "none"}
+        combined_graph_col_style = {"display": "none"}
+        harmonic_graph_col_style = {"display": "block"}
+        signal_graph_col_style = {"display": "block"} if show_noise else {"display": "none"}
+        filter_graph_col_style = {"display": "block"} if show_filter else {"display": "none"}
+
+        enabled_graphs = sum([True, show_noise, show_filter])
+        col_width = int(12 / enabled_graphs)
+
+        combined_col_width = 0
+        harmonic_col_width = col_width
+        signal_col_width = col_width if show_noise else 0
+        filtered_col_width = col_width if show_filter else 0
     else:
-        combined_graph_style = {"display": "block"}
-        harmonic_graph_style = {"display": "none"}
-        signal_graph_style = {"display": "none"}
-        filtered_graph_style = {"display": "none"}
+        combined_graph_col_style = {"display": "block"}
+        harmonic_graph_col_style = {"display": "none"}
+        signal_graph_col_style = {"display": "none"}
+        filter_graph_col_style = {"display": "none"}
+
+        harmonic_col_width = 12
+        signal_col_width = 12
+        filtered_col_width = 12
+        combined_col_width = 12
 
     return [
         combined_fig, harmonic_graph, signal_fig, filtered_fig,
-        combined_graph_style, harmonic_graph_style, signal_graph_style, filtered_graph_style
+        combined_graph_col_style, harmonic_graph_col_style, signal_graph_col_style, filter_graph_col_style,
+        combined_col_width, harmonic_col_width, signal_col_width, filtered_col_width
     ]
 
+
+GRAPHS: dict = {
+    'combined-graph': {'style': {'display': 'block'}},
+    'harmonic-graph': {'style': {'display': 'none'}},
+    'signal-graph': {'style': {'display': 'none'}},
+    'filter-graph': {'style': {'display': 'none'}}
+}
 
 app.layout = dbc.Container(
     children=[
         build_header(),
         html.Div(
+            className="border border-secondary-subtle p-4 rounded-4 shadow-sm",
             children=[
                 dbc.Row(
                     children=[
@@ -388,25 +425,21 @@ app.layout = dbc.Container(
                     ]
                 ),
                 dbc.Row(
+                    className="pt-3",
                     children=[
-                        dbc.Spinner(
+                        dbc.Col(
+                            id=name + '-col',
+                            width=12,
+                            style=config['style'],
                             children=[
-                                dcc.Graph(id='graph'),
-                                html.Div(
-                                    className="d-flex flex-column mh-30",
-                                    children=[
-                                        dcc.Graph(id='harmonic-graph', style={'display': 'none'}),
-                                        dcc.Graph(id='signal-graph', style={'display': 'none'}),
-                                        dcc.Graph(id='filter-graph', style={'display': 'none'})
-                                    ]
-                                )
-                            ],
-                            delay_show=200
+                                dcc.Graph(id=name)
+                            ]
                         )
+                        for name, config
+                        in GRAPHS.items()
                     ]
                 )
             ],
-            className="border border-secondary-subtle p-4 rounded-4 shadow-sm"
         )
     ],
     fluid=True,
