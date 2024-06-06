@@ -63,6 +63,6 @@ pip install pandas numpy dash dash-bootstrap-components scipy
 ![](assets/Pasted%20image%2020240607015140.png)
 
  
-![](assets/example.mov)
+![](assets/test.mov)
 
-<video src='assets/example.mov' width=180/>
+(720p cause github limit :/)
