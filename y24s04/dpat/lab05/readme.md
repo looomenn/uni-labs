@@ -15,9 +15,7 @@ Done?:
 
 
 \* - функції виду:
-$$
-y(t) = A * \sin(\omega*t+\varphi)
-$$
+$$y(t) = A * \sin(\omega*t+\varphi)$$
 
 **Завдання №1**
 
@@ -57,4 +55,3 @@ pip install pandas numpy dash dash-bootstrap-components scipy
 
 
 ### Appendix
-
