@@ -40,11 +40,10 @@ def build_sliders():
     k_slider = get_slider("K Value", "k_slider", 1, 5)
     b_slider = get_slider("B Value", "b_slider", 1, 5)
     n_points = get_slider("N Points", "n_points", 100, 200, step=20)
-    noise_level = get_slider("Noise Level", "noise_lvl", 2, 5),
-    grad_learning_rate = get_slider("Learning Rate", "learning_rate",0, 0.5, 0.01),
-    grad_n_iter = get_slider("Number of iterations", "n_iter", 500, 6000, 100),
+    noise_level = get_slider("Noise Level", "noise_lvl", 2, 5)
+    grad_n_iter = get_slider("Number of iterations", "n_iter", 500, 6000, 100)
 
-    return [k_slider, b_slider, n_points, noise_level, grad_learning_rate, grad_n_iter]
+    return [k_slider, b_slider, n_points, noise_level, grad_n_iter]
 
 
 def build_header():
@@ -93,16 +92,15 @@ def build_output():
         Input('b_slider', 'value'),
         Input('n_points', 'value'),
         Input('noise_lvl', 'value'),
-        Input('learning_rate', 'value'),
         Input('n_iter', 'value'),
     ]
 )
-def update_figure(k_value, b_value, n_points, noise_lvl, learning_rate, num_iters):
+def update_figure(k_value, b_value, n_points, noise_lvl, num_iters):
 
     x, y = generate_data(k_value, b_value, n_points, noise_lvl)
 
     k_squares, b_squares = squares(x, y)
-    k_gradient, b_gradient, errors = gradient(x, y, learning_rate, num_iters)
+    k_gradient, b_gradient, errors = gradient(x, y, n_iter=num_iters)
 
     polyfit_params = np.polyfit(x, y, 1)
 
