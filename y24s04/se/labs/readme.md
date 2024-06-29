@@ -14,6 +14,8 @@ Done?:
 Назва:
 Опис систем. Структурна діаграма системи.
 
+ВЕСЬ ПРОЄКТ - [project-info.md](project-info.md) 
+
 **Завдання 1*
 
 1. Оберіть систему згідно вашого номера у списку групи (для номерів більше 12 берете варіант вашого номеру за модулем 12).
@@ -41,7 +43,7 @@ Done?:
 - [x] requirements diagram
 - [x] state machine diagram
 - [x] sequences diagram
-- [ ] activity diagram
+- [x] activity diagram
 
 
 
