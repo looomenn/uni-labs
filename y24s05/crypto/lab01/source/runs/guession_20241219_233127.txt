@@ -1,0 +1,392 @@
+Game: AutoPlay LetterGuesser
+Number of Experiments: 50
+N-gram Order: 20
+Experiment details:
+	Experiment 1:
+		Attempts: 5
+		Correct char: е
+		Used Letters: о, и, у, і, е
+		Text: ь_з_іншого_боку_дверей_вони_раптом_відкрилися_настільки_тихо_що_навіть_п
+
+	Experiment 2:
+		Attempts: 9
+		Correct char: з
+		Used Letters: _, н, п, а, с, т, в, и, з
+		Text: орив_вітру_з_вулиці_зірвав_з_підвіконня_легкий_аркуш_паперу_тиша_була_та
+
+	Experiment 3:
+		Attempts: 7
+		Correct char: в
+		Used Letters: _, л, с, р, д, б, в
+		Text: і_ледве_чутний_промовив_моє_ім'я_моє_тіло_пронизав_холодний_піт_пальці_т
+
+	Experiment 4:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: осли_до_підлоги_я_не_міг_зрушити_з_місця_раптовий_порив_вітру_з_вулиці_з
+
+	Experiment 5:
+		Attempts: 6
+		Correct char: т
+		Used Letters: _, н, п, а, с, т
+		Text: _кімнати_хтось_наче_торкнувся_дверної_ручки_повітря_стало_важким_і_густи
+
+	Experiment 6:
+		Attempts: 3
+		Correct char: в
+		Used Letters: _, л, в
+		Text: _знайомого_я_повернув_голову_до_дверей_які_лишалися_закритими_відтоді_як
+
+	Experiment 7:
+		Attempts: 7
+		Correct char: к
+		Used Letters: _, л, в, з, т, п, к
+		Text: _шурхотіння_листя_рука_простяглася_до_вікна_і_ковзнула_по_холодному_склу
+
+	Experiment 8:
+		Attempts: 2
+		Correct char: а
+		Used Letters: о, а
+		Text: еред_підлога_під_ногами_скрипнула_ніби_це_був_знак_для_когось_з_іншого_б
+
+	Experiment 9:
+		Attempts: 15
+		Correct char: к
+		Used Letters: _, л, с, р, д, б, в, м, й, н, г, ю, ї, ч, к
+		Text: явся_зробити_цей_крок_мої_очі_пильно_вдивлялися_у_темряву_шукаючи_хоча_б
+
+	Experiment 10:
+		Attempts: 6
+		Correct char: л
+		Used Letters: _, т, д, в, н, л
+		Text: е_входили_я_стояв_біля_вікна_не_наважуючись_навіть_дихати_світло_свічки_
+
+	Experiment 11:
+		Attempts: 2
+		Correct char: н
+		Used Letters: _, н
+		Text: м_і_густим_мої_ноги_ніби_приросли_до_підлоги_я_не_міг_зрушити_з_місця_ра
+
+	Experiment 12:
+		Attempts: 20
+		Correct char: б
+		Used Letters: _, н, п, а, с, т, в, и, з, д, о, л, к, я, е, р, г, ь, м, б
+		Text: ув_тихий_сміх_чи_це_було_просто_шурхотіння_листя_рука_простяглася_до_вік
+
+	Experiment 13:
+		Attempts: 10
+		Correct char: н
+		Used Letters: _, л, с, р, д, б, в, м, й, н
+		Text: ншого_боку_дверей_вони_раптом_відкрилися_настільки_тихо_що_навіть_повітр
+
+	Experiment 14:
+		Attempts: 2
+		Correct char: н
+		Used Letters: _, н
+		Text: р_шепотів_щось_своє_на_вулиці_штори_ледве_коливалися_під_легкими_подихам
+
+	Experiment 15:
+		Attempts: 9
+		Correct char: з
+		Used Letters: _, н, п, а, с, т, в, и, з
+		Text: ах_кімнати_час_ніби_зупинився_навколо_мене_здавалося_що_кожна_хвилина_тр
+
+	Experiment 16:
+		Attempts: 6
+		Correct char: _
+		Used Letters: о, и, у, і, е, _
+		Text: в_до_мене_лише_вітер_шепотів_щось_своє_на_вулиці_штори_ледве_коливалися_
+
+	Experiment 17:
+		Attempts: 14
+		Correct char: я
+		Used Letters: _, н, п, а, с, т, в, и, з, д, о, л, к, я
+		Text: ув_голову_до_дверей_які_лишалися_закритими_відтоді_як_тінь_зникла_підлог
+
+	Experiment 18:
+		Attempts: 7
+		Correct char: в
+		Used Letters: _, л, с, р, д, б, в
+		Text: яглася_до_вікна_і_ковзнула_по_холодному_склу_хто_був_за_дверима_чому_вон
+
+	Experiment 19:
+		Attempts: 13
+		Correct char: к
+		Used Letters: _, н, п, а, с, т, в, и, з, д, о, л, к
+		Text: піт_пальці_тремтіли_коли_я_намагався_сховати_їх_у_кишеню_що_ж_чекало_на_
+
+	Experiment 20:
+		Attempts: 2
+		Correct char: н
+		Used Letters: _, н
+		Text: и_що_мало_статися_я_набрався_сміливості_і_зробив_крок_вперед_підлога_під
+
+	Experiment 21:
+		Attempts: 27
+		Correct char: ц
+		Used Letters: _, н, п, а, с, т, в, и, з, д, о, л, к, я, е, р, г, ь, м, б, і, й, ч, щ, у, х, ц
+		Text: ід_легкими_подихами_цього_шепоту_кожен_подих_вітру_приносив_із_собою_зап
+
+	Experiment 22:
+		Attempts: 1
+		Correct char: о
+		Used Letters: о
+		Text: чув_цей_звук_з_іншого_боку_це_не_були_кроки_але_щось_подібне_до_тихого_ш
+
+	Experiment 23:
+		Attempts: 3
+		Correct char: н
+		Used Letters: _, р, н
+		Text: ще_залишалися_зачиненими_звідкись_долинув_тихий_сміх_чи_це_було_просто_ш
+
+	Experiment 24:
+		Attempts: 13
+		Correct char: ї
+		Used Letters: _, л, с, р, д, б, в, м, й, н, г, ю, ї
+		Text: у_холод_пробіг_по_моїй_спині_я_знову_почув_цей_звук_з_іншого_боку_це_не_
+
+	Experiment 25:
+		Attempts: 8
+		Correct char: н
+		Used Letters: и, е, к, і, у, а, о, н
+		Text: нь_тягнувся_безкінечно_сонце_повільно_ковзало_небом_мов_великий_червоний
+
+	Experiment 26:
+		Attempts: 2
+		Correct char: _
+		Used Letters: о, _
+		Text: хоча_б_натяку_на_рух_час_зупинився_разом_із_моїм_диханням_коли_я_ступив_
+
+	Experiment 27:
+		Attempts: 2
+		Correct char: т
+		Used Letters: я, т
+		Text: _я_набрався_сміливості_і_зробив_крок_вперед_підлога_під_ногами_скрипнула
+
+	Experiment 28:
+		Attempts: 2
+		Correct char: і
+		Used Letters: о, і
+		Text: рок_вперед_підлога_під_ногами_скрипнула_ніби_це_був_знак_для_когось_з_ін
+
+	Experiment 29:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: и_були_тут_поруч_але_зупинилися_на_мить_перед_дверима_чому_вони_не_входи
+
+	Experiment 30:
+		Attempts: 3
+		Correct char: о
+		Used Letters: и, у, о
+		Text: повільно_ковзало_небом_мов_великий_червоний_диск_мене_переслідував_образ
+
+	Experiment 31:
+		Attempts: 3
+		Correct char: м
+		Used Letters: _, л, м
+		Text: ред_підлога_під_ногами_скрипнула_ніби_це_був_знак_для_когось_з_іншого_бо
+
+	Experiment 32:
+		Attempts: 13
+		Correct char: к
+		Used Letters: о, и, у, і, е, _, н, в, а, ц, я, ю, к
+		Text: _рука_легенько_доторкнулася_до_дверної_ручки_відчувши_її_прохолоду_холод
+
+	Experiment 33:
+		Attempts: 15
+		Correct char: ц
+		Used Letters: _, н, т, й, в, м, с, л, ч, х, ш, д, к, ж, ц
+		Text: й_порив_вітру_з_вулиці_зірвав_з_підвіконня_легкий_аркуш_паперу_тиша_була
+
+	Experiment 34:
+		Attempts: 3
+		Correct char: п
+		Used Letters: _, н, п
+		Text: ти_з_місця_раптовий_порив_вітру_з_вулиці_зірвав_з_підвіконня_легкий_арку
+
+	Experiment 35:
+		Attempts: 2
+		Correct char: н
+		Used Letters: _, н
+		Text: ьці_тремтіли_коли_я_намагався_сховати_їх_у_кишеню_що_ж_чекало_на_мене_за
+
+	Experiment 36:
+		Attempts: 19
+		Correct char: м
+		Used Letters: _, н, п, а, с, т, в, и, з, д, о, л, к, я, е, р, г, ь, м
+		Text: й_промовив_моє_ім'я_моє_тіло_пронизав_холодний_піт_пальці_тремтіли_коли_
+
+	Experiment 37:
+		Attempts: 2
+		Correct char: р
+		Used Letters: _, р
+		Text: але_знайомого_я_повернув_голову_до_дверей_які_лишалися_закритими_відтоді
+
+	Experiment 38:
+		Attempts: 7
+		Correct char: у
+		Used Letters: е, _, і, а, о, и, у
+		Text: _чимось_іншим_очі_звузилися_вдивляючись_у_темряву_спробувавши_розпізнати
+
+	Experiment 39:
+		Attempts: 14
+		Correct char: я
+		Used Letters: _, н, п, а, с, т, в, и, з, д, о, л, к, я
+		Text: я_закритими_відтоді_як_тінь_зникла_підлога_була_прохолодною_під_босими_н
+
+	Experiment 40:
+		Attempts: 16
+		Correct char: ш
+		Used Letters: е, _, і, а, о, и, у, с, ч, я, є, ю, з, д, л, ш
+		Text: дверної_ручки_відчувши_її_прохолоду_холод_пробіг_по_моїй_спині_я_знову_п
+
+	Experiment 41:
+		Attempts: 7
+		Correct char: т
+		Used Letters: _, л, м, в, с, д, т
+		Text: і_але_я_не_міг_згадати_її_деталей_я_встав_біля_вікна_спостерігаючи_за_ти
+
+	Experiment 42:
+		Attempts: 7
+		Correct char: в
+		Used Letters: _, л, с, р, д, б, в
+		Text: _безкінечно_сонце_повільно_ковзало_небом_мов_великий_червоний_диск_мене_
+
+	Experiment 43:
+		Attempts: 1
+		Correct char: е
+		Used Letters: е
+		Text: _серце_билося_частіше_коли_я_чув_ці_кроки_вони_наближалися_дедалі_більше
+
+	Experiment 44:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: оги_я_не_міг_зрушити_з_місця_раптовий_порив_вітру_з_вулиці_зірвав_з_підв
+
+	Experiment 45:
+		Attempts: 5
+		Correct char: в
+		Used Letters: _, н, т, й, в
+		Text: _подих_вітру_приносив_із_собою_запах_чогось_невідомого_але_знайомого_я_п
+
+	Experiment 46:
+		Attempts: 9
+		Correct char: п
+		Used Letters: _, л, м, в, с, д, т, є, п
+		Text: _боку_дверей_вони_раптом_відкрилися_настільки_тихо_що_навіть_повітря_не_
+
+	Experiment 47:
+		Attempts: 3
+		Correct char: е
+		Used Letters: и, о, е
+		Text: тінь_голос_тихий_і_ледве_чутний_промовив_моє_ім'я_моє_тіло_пронизав_холо
+
+	Experiment 48:
+		Attempts: 10
+		Correct char: н
+		Used Letters: _, л, с, р, д, б, в, м, й, н
+		Text: в_за_дверима_чому_вони_чекали_що_мало_статися_я_набрався_сміливості_і_зр
+
+	Experiment 49:
+		Attempts: 2
+		Correct char: л
+		Used Letters: _, л
+		Text: отів_щось_своє_на_вулиці_штори_ледве_коливалися_під_легкими_подихами_цьо
+
+	Experiment 50:
+		Attempts: 4
+		Correct char: а
+		Used Letters: _, н, п, а
+		Text: ку_це_не_були_кроки_але_щось_подібне_до_тихого_шелесту_ніби_хтось_наближ
+
+
+Global Guessed Letters (Session):
+	Char: е     Attempt: 5    Binary: 0000100000000000000000000000000000
+	Char: з     Attempt: 9    Binary: 0000000010000000000000000000000000
+	Char: в     Attempt: 7    Binary: 0000001000000000000000000000000000
+	Char: _     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: т     Attempt: 6    Binary: 0000010000000000000000000000000000
+	Char: в     Attempt: 3    Binary: 0010000000000000000000000000000000
+	Char: к     Attempt: 7    Binary: 0000001000000000000000000000000000
+	Char: а     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: к     Attempt: 15   Binary: 0000000000000010000000000000000000
+	Char: л     Attempt: 6    Binary: 0000010000000000000000000000000000
+	Char: н     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: б     Attempt: 20   Binary: 0000000000000000000100000000000000
+	Char: н     Attempt: 10   Binary: 0000000001000000000000000000000000
+	Char: н     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: з     Attempt: 9    Binary: 0000000010000000000000000000000000
+	Char: _     Attempt: 6    Binary: 0000010000000000000000000000000000
+	Char: я     Attempt: 14   Binary: 0000000000000100000000000000000000
+	Char: в     Attempt: 7    Binary: 0000001000000000000000000000000000
+	Char: к     Attempt: 13   Binary: 0000000000001000000000000000000000
+	Char: н     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: ц     Attempt: 27   Binary: 0000000000000000000000000010000000
+	Char: о     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: н     Attempt: 3    Binary: 0010000000000000000000000000000000
+	Char: ї     Attempt: 13   Binary: 0000000000001000000000000000000000
+	Char: н     Attempt: 8    Binary: 0000000100000000000000000000000000
+	Char: _     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: т     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: і     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: _     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: о     Attempt: 3    Binary: 0010000000000000000000000000000000
+	Char: м     Attempt: 3    Binary: 0010000000000000000000000000000000
+	Char: к     Attempt: 13   Binary: 0000000000001000000000000000000000
+	Char: ц     Attempt: 15   Binary: 0000000000000010000000000000000000
+	Char: п     Attempt: 3    Binary: 0010000000000000000000000000000000
+	Char: н     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: м     Attempt: 19   Binary: 0000000000000000001000000000000000
+	Char: р     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: у     Attempt: 7    Binary: 0000001000000000000000000000000000
+	Char: я     Attempt: 14   Binary: 0000000000000100000000000000000000
+	Char: ш     Attempt: 16   Binary: 0000000000000001000000000000000000
+	Char: т     Attempt: 7    Binary: 0000001000000000000000000000000000
+	Char: в     Attempt: 7    Binary: 0000001000000000000000000000000000
+	Char: е     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: _     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: в     Attempt: 5    Binary: 0000100000000000000000000000000000
+	Char: п     Attempt: 9    Binary: 0000000010000000000000000000000000
+	Char: е     Attempt: 3    Binary: 0010000000000000000000000000000000
+	Char: н     Attempt: 10   Binary: 0000000001000000000000000000000000
+	Char: л     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: а     Attempt: 4    Binary: 0001000000000000000000000000000000
+
+Global Probabilities (Session):
+	1: 0.1
+	2: 0.2
+	3: 0.12
+	4: 0.02
+	5: 0.04
+	6: 0.06
+	7: 0.12
+	8: 0.02
+	9: 0.06
+	10: 0.04
+	11: 0.0
+	12: 0.0
+	13: 0.06
+	14: 0.04
+	15: 0.04
+	16: 0.02
+	17: 0.0
+	18: 0.0
+	19: 0.02
+	20: 0.02
+	21: 0.0
+	22: 0.0
+	23: 0.0
+	24: 0.0
+	25: 0.0
+	26: 0.0
+	27: 0.02
+	28: 0.0
+	29: 0.0
+	30: 0.0
+	31: 0.0
+	32: 0.0
+	33: 0.0
+	34: 0.0
