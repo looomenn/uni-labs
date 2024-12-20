@@ -1,0 +1,37 @@
+Text analysis:
+Date: 2024-12-20 21:50:10
+No. of Files: 1
+
+File: en01.txt
+Language: en
+Letters Entropy: 4.1224
+Bigrams Entropy: 7.4668
+Letters Redundancy: 0.1330
+Bigrams Redundancy: 0.2148
+Detailed Entropy:
+	Letters w/ spaces:
+		Entropy: 4.1224	Redundancy:0.13301986752599082
+	Letters no spaces:
+		Entropy: 4.1379	Redundancy:0.12975074936283482
+	Bigrams w/ spaces (crossing):
+		Entropy: 7.4668	Redundancy:0.21482579561060033
+	Bigrams w/ spaces (no crossing):
+		Entropy: 7.3440	Redundancy:0.22774543335288633
+	Bigrams no spaces (crossing):
+		Entropy: 7.6709	Redundancy:0.19336566474254047
+	Bigrams no spaces (no crossing):
+		Entropy: 7.6709	Redundancy:0.19336566474254047
+Bounds:
+	N = 10: 4.7549 < H(10) = 17.7066 < 47.5489
+	N = 20: 4.7549 < H(20) = 20.2891 < 95.0978
+	N = 30: 4.7549 < H(30) = 20.7811 < 142.6466
+Language Redundancy:
+	N = 10: R ~= 0.6276
+	N = 20: R ~= 0.7867
+	N = 30: R ~= 0.8543
+
+Aggregated results:
+AVG Letters Entropy: 4.1224
+AVG Bigrams Entropy: 7.4668
+AVG Letters Redundancy: 0.1330
+AVG Bigrams Redundancy: 0.2148
