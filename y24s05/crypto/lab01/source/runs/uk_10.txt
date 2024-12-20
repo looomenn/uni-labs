@@ -1,0 +1,445 @@
+Game: AutoPlay LetterGuesser
+Number of Experiments: 50
+N-gram Order: 10
+Experiment details:
+	Experiment 1:
+		Attempts: 11
+		Correct char: в
+		Used Letters: _, р, н, ч, л, й, м, д, п, с, в
+		Text: _чогось_невідомого_але_знайомого_я_повернув_голову_до_дверей_які_лишалис
+		Entropy bounds: -0.0000 < H < 5.0875
+
+	Experiment 2:
+		Attempts: 8
+		Correct char: и
+		Used Letters: т, я, ь, п, е, о, а, и
+		Text: ою_під_босими_ногами_коли_я_підійшов_до_дверей_рука_легенько_доторкнулас
+		Entropy bounds: 1.0000 < H < 6.0875
+
+	Experiment 3:
+		Attempts: 1
+		Correct char: а
+		Used Letters: а
+		Text: ли_на_стінах_кімнати_час_ніби_зупинився_навколо_мене_здавалося_що_кожна_
+		Entropy bounds: 1.5849 < H < 6.6724
+
+	Experiment 4:
+		Attempts: 3
+		Correct char: в
+		Used Letters: _, л, в
+		Text: учки_відчувши_її_прохолоду_холод_пробіг_по_моїй_спині_я_знову_почув_цей_
+		Entropy bounds: 2.0000 < H < 7.0875
+
+	Experiment 5:
+		Attempts: 7
+		Correct char: і
+		Used Letters: о, а, и, р, _, у, і
+		Text: а_стінах_кімнати_час_ніби_зупинився_навколо_мене_здавалося_що_кожна_хвил
+		Entropy bounds: 2.3219 < H < 7.4094
+
+	Experiment 6:
+		Attempts: 4
+		Correct char: а
+		Used Letters: е, и, у, а
+		Text: е_ще_залишалися_зачиненими_звідкись_долинув_тихий_сміх_чи_це_було_просто
+		Entropy bounds: 2.5852 < H < 7.6727
+
+	Experiment 7:
+		Attempts: 7
+		Correct char: в
+		Used Letters: и, о, і, е, _, н, в
+		Text: сила_але_двері_все_ще_залишалися_зачиненими_звідкись_долинув_тихий_сміх_
+		Entropy bounds: 2.5219 < H < 7.6094
+
+	Experiment 8:
+		Attempts: 2
+		Correct char: и
+		Used Letters: о, и
+		Text: перед_дверима_чому_вони_не_входили_я_стояв_біля_вікна_не_наважуючись_нав
+		Entropy bounds: 2.7500 < H < 7.8375
+
+	Experiment 9:
+		Attempts: 12
+		Correct char: ш
+		Used Letters: _, н, т, в, й, м, с, ч, х, л, к, ш
+		Text: _паперу_тиша_була_такою_густою_що_можна_було_почути_як_годинник_відбиває
+		Entropy bounds: 2.9476 < H < 8.0350
+
+	Experiment 10:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: аперу_тиша_була_такою_густою_що_можна_було_почути_як_годинник_відбиває_с
+		Entropy bounds: 2.9219 < H < 8.0094
+
+	Experiment 11:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: и_було_вже_не_сила_але_двері_все_ще_залишалися_зачиненими_звідкись_долин
+		Entropy bounds: 2.8452 < H < 7.9327
+
+	Experiment 12:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: овзнула_по_холодному_склу_хто_був_за_дверима_чому_вони_чекали_що_мало_ст
+		Entropy bounds: 2.7512 < H < 7.8387
+
+	Experiment 13:
+		Attempts: 9
+		Correct char: л
+		Used Letters: о, а, и, р, _, у, і, н, л
+		Text: _тінь_зникла_підлога_була_прохолодною_під_босими_ногами_коли_я_підійшов_
+		Entropy bounds: 2.9308 < H < 8.0183
+
+	Experiment 14:
+		Attempts: 1
+		Correct char: а
+		Used Letters: а
+		Text: ся_що_кожна_хвилина_триває_вічність_жоден_звук_не_долинав_до_мене_лише_в
+		Entropy bounds: 2.8348 < H < 7.9223
+
+	Experiment 15:
+		Attempts: 4
+		Correct char: р
+		Used Letters: _, л, с, р
+		Text: лося_на_порозі_стояла_тінь_вона_не_була_схожа_на_людину_але_й_не_була_чи
+		Entropy bounds: 2.8666 < H < 7.9541
+
+	Experiment 16:
+		Attempts: 7
+		Correct char: т
+		Used Letters: _, л, в, м, с, д, т
+		Text: _хоча_б_натяку_на_рух_час_зупинився_разом_із_моїм_диханням_коли_я_ступив
+		Entropy bounds: 2.8522 < H < 7.9397
+
+	Experiment 17:
+		Attempts: 6
+		Correct char: е
+		Used Letters: о, а, ь, и, і, е
+		Text: е_лише_вітер_шепотів_щось_своє_на_вулиці_штори_ледве_коливалися_під_легк
+		Entropy bounds: 3.0067 < H < 8.0942
+
+	Experiment 18:
+		Attempts: 4
+		Correct char: с
+		Used Letters: _, п, а, с
+		Text: ть_дихати_світло_свічки_кидало_довгі_тіні_на_стіни_кімнати_хтось_наче_то
+		Entropy bounds: 2.9976 < H < 8.0850
+
+	Experiment 19:
+		Attempts: 7
+		Correct char: т
+		Used Letters: _, п, а, с, н, в, т
+		Text: тиша_була_такою_густою_що_можна_було_почути_як_годинник_відбиває_секунди
+		Entropy bounds: 2.9650 < H < 8.0524
+
+	Experiment 20:
+		Attempts: 14
+		Correct char: ш
+		Used Letters: а, и, е, о, і, у, ь, н, я, с, т, ю, _, ш
+		Text: _звук_з_іншого_боку_це_не_були_кроки_але_щось_подібне_до_тихого_шелесту_
+		Entropy bounds: 3.1037 < H < 8.1912
+
+	Experiment 21:
+		Attempts: 2
+		Correct char: д
+		Used Letters: _, д
+		Text: ірвав_з_підвіконня_легкий_аркуш_паперу_тиша_була_такою_густою_що_можна_б
+		Entropy bounds: 3.1365 < H < 8.2239
+
+	Experiment 22:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: и_звідкись_долинув_тихий_сміх_чи_це_було_просто_шурхотіння_листя_рука_пр
+		Entropy bounds: 3.0847 < H < 8.1722
+
+	Experiment 23:
+		Attempts: 5
+		Correct char: с
+		Used Letters: _, л, в, м, с
+		Text: кімнати_час_ніби_зупинився_навколо_мене_здавалося_що_кожна_хвилина_трива
+		Entropy bounds: 3.2083 < H < 8.2957
+
+	Experiment 24:
+		Attempts: 3
+		Correct char: н
+		Used Letters: а, _, н
+		Text: _це_все_означало_чому_я_боявся_зробити_цей_крок_мої_очі_пильно_вдивлялис
+		Entropy bounds: 3.2412 < H < 8.3287
+
+	Experiment 25:
+		Attempts: 1
+		Correct char: а
+		Used Letters: а
+		Text: оки_вони_наближалися_дедалі_більше_вони_були_тут_поруч_але_зупинилися_на
+		Entropy bounds: 3.1876 < H < 8.2751
+
+	Experiment 26:
+		Attempts: 2
+		Correct char: о
+		Used Letters: и, о
+		Text: що_ж_чекало_на_мене_за_порогом_цього_дивного_дому_чи_зможу_я_зробити_цей
+		Entropy bounds: 3.1950 < H < 8.2825
+
+	Experiment 27:
+		Attempts: 3
+		Correct char: е
+		Used Letters: а, и, е
+		Text: вся_безкінечно_сонце_повільно_ковзало_небом_мов_великий_червоний_диск_ме
+		Entropy bounds: 3.2015 < H < 8.2889
+
+	Experiment 28:
+		Attempts: 5
+		Correct char: і
+		Used Letters: о, а, ь, и, і
+		Text: раз_тієї_тіні_але_я_не_міг_згадати_її_деталей_я_встав_біля_вікна_спостер
+		Entropy bounds: 3.2384 < H < 8.3259
+
+	Experiment 29:
+		Attempts: 8
+		Correct char: н
+		Used Letters: о, а, и, р, _, у, і, н
+		Text: ько_доторкнулася_до_дверної_ручки_відчувши_її_прохолоду_холод_пробіг_по_
+		Entropy bounds: 3.2748 < H < 8.3623
+
+	Experiment 30:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: вдивлялися_у_темряву_шукаючи_хоча_б_натяку_на_рух_час_зупинився_разом_із
+		Entropy bounds: 3.2310 < H < 8.3184
+
+	Experiment 31:
+		Attempts: 3
+		Correct char: е
+		Used Letters: а, и, е
+		Text: _повітря_не_поворухнулося_на_порозі_стояла_тінь_вона_не_була_схожа_на_лю
+		Entropy bounds: 3.2287 < H < 8.3162
+
+	Experiment 32:
+		Attempts: 1
+		Correct char: а
+		Used Letters: а
+		Text: тінах_кімнати_час_ніби_зупинився_навколо_мене_здавалося_що_кожна_хвилина
+		Entropy bounds: 3.1856 < H < 8.2730
+
+	Experiment 33:
+		Attempts: 6
+		Correct char: в
+		Used Letters: _, п, а, с, н, в
+		Text: звузилися_вдивляючись_у_темряву_спробувавши_розпізнати_цю_тінь_голос_тих
+		Entropy bounds: 3.2248 < H < 8.3123
+
+	Experiment 34:
+		Attempts: 2
+		Correct char: д
+		Used Letters: _, д
+		Text: _раптом_відкрилися_настільки_тихо_що_навіть_повітря_не_поворухнулося_на_
+		Entropy bounds: 3.2255 < H < 8.3130
+
+	Experiment 35:
+		Attempts: 5
+		Correct char: а
+		Used Letters: и, о, і, е, а
+		Text: _і_ковзнула_по_холодному_склу_хто_був_за_дверима_чому_вони_чекали_що_мал
+		Entropy bounds: 3.2426 < H < 8.3301
+
+	Experiment 36:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: й_крок_мої_очі_пильно_вдивлялися_у_темряву_шукаючи_хоча_б_натяку_на_рух_
+		Entropy bounds: 3.2056 < H < 8.2931
+
+	Experiment 37:
+		Attempts: 2
+		Correct char: о
+		Used Letters: _, о
+		Text: робіг_по_моїй_спині_я_знову_почув_цей_звук_з_іншого_боку_це_не_були_крок
+		Entropy bounds: 3.2002 < H < 8.2876
+
+	Experiment 38:
+		Attempts: 5
+		Correct char: й
+		Used Letters: _, н, т, в, й
+		Text: ий_червоний_диск_мене_переслідував_образ_тієї_тіні_але_я_не_міг_згадати_
+		Entropy bounds: 3.2060 < H < 8.2934
+
+	Experiment 39:
+		Attempts: 8
+		Correct char: б
+		Used Letters: _, л, с, р, в, д, м, б
+		Text: слідував_образ_тієї_тіні_але_я_не_міг_згадати_її_деталей_я_встав_біля_ві
+		Entropy bounds: 3.2249 < H < 8.3124
+
+	Experiment 40:
+		Attempts: 4
+		Correct char: н
+		Used Letters: и, е, к, н
+		Text: триває_вічність_жоден_звук_не_долинав_до_мене_лише_вітер_шепотів_щось_св
+		Entropy bounds: 3.2323 < H < 8.3198
+
+	Experiment 41:
+		Attempts: 3
+		Correct char: и
+		Used Letters: о, а, и
+		Text: ати_їх_у_кишеню_що_ж_чекало_на_мене_за_порогом_цього_дивного_дому_чи_змо
+		Entropy bounds: 3.2315 < H < 8.3190
+
+	Experiment 42:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: ає_секунди_чекати_було_вже_не_сила_але_двері_все_ще_залишалися_зачиненим
+		Entropy bounds: 3.2005 < H < 8.2880
+
+	Experiment 43:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: _на_вулиці_штори_ледве_коливалися_під_легкими_подихами_цього_шепоту_коже
+		Entropy bounds: 3.1713 < H < 8.2588
+
+	Experiment 44:
+		Attempts: 32
+		Correct char: ш
+		Used Letters: _, п, а, с, н, в, т, и, з, д, о, к, л, р, я, е, м, ь, і, г, б, й, у, ч, щ, х, ї, ц, ю, є, ж, ш
+		Text: ло_просто_шурхотіння_листя_рука_простяглася_до_вікна_і_ковзнула_по_холод
+		Entropy bounds: 3.2545 < H < 8.3419
+
+	Experiment 45:
+		Attempts: 10
+		Correct char: д
+		Used Letters: _, п, а, с, н, в, т, и, з, д
+		Text: е_долинав_до_мене_лише_вітер_шепотів_щось_своє_на_вулиці_штори_ледве_кол
+		Entropy bounds: 3.3359 < H < 8.4234
+
+	Experiment 46:
+		Attempts: 2
+		Correct char: я
+		Used Letters: т, я
+		Text: ворухнулося_на_порозі_стояла_тінь_вона_не_була_схожа_на_людину_але_й_не_
+		Entropy bounds: 3.3295 < H < 8.4170
+
+	Experiment 47:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: ад_дорогою_як_примари_серце_билося_частіше_коли_я_чув_ці_кроки_вони_набл
+		Entropy bounds: 3.3004 < H < 8.3879
+
+	Experiment 48:
+		Attempts: 2
+		Correct char: д
+		Used Letters: _, д
+		Text: підлога_під_ногами_скрипнула_ніби_це_був_знак_для_когось_з_іншого_боку_д
+		Entropy bounds: 3.2898 < H < 8.3773
+
+	Experiment 49:
+		Attempts: 13
+		Correct char: п
+		Used Letters: _, л, в, м, с, д, т, н, р, є, к, ц, п
+		Text: ей_вони_раптом_відкрилися_настільки_тихо_що_навіть_повітря_не_поворухнул
+		Entropy bounds: 3.3667 < H < 8.4542
+
+	Experiment 50:
+		Attempts: 9
+		Correct char: з
+		Used Letters: _, п, а, с, н, в, т, и, з
+		Text: у_хто_був_за_дверима_чому_вони_чекали_що_мало_статися_я_набрався_сміливо
+		Entropy bounds: 3.4014 < H < 8.4889
+
+
+Entropy:
+	Entropy bounds: 3.4014 < H < 8.4889
+
+Global Guessed Letters (Session):
+	Char: в     Attempt: 11   Binary: 0000000000100000000000000000000000
+	Char: и     Attempt: 8    Binary: 0000000100000000000000000000000000
+	Char: а     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: в     Attempt: 3    Binary: 0010000000000000000000000000000000
+	Char: і     Attempt: 7    Binary: 0000001000000000000000000000000000
+	Char: а     Attempt: 4    Binary: 0001000000000000000000000000000000
+	Char: в     Attempt: 7    Binary: 0000001000000000000000000000000000
+	Char: и     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: ш     Attempt: 12   Binary: 0000000000010000000000000000000000
+	Char: _     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: _     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: _     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: л     Attempt: 9    Binary: 0000000010000000000000000000000000
+	Char: а     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: р     Attempt: 4    Binary: 0001000000000000000000000000000000
+	Char: т     Attempt: 7    Binary: 0000001000000000000000000000000000
+	Char: е     Attempt: 6    Binary: 0000010000000000000000000000000000
+	Char: с     Attempt: 4    Binary: 0001000000000000000000000000000000
+	Char: т     Attempt: 7    Binary: 0000001000000000000000000000000000
+	Char: ш     Attempt: 14   Binary: 0000000000000100000000000000000000
+	Char: д     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: _     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: с     Attempt: 5    Binary: 0000100000000000000000000000000000
+	Char: н     Attempt: 3    Binary: 0010000000000000000000000000000000
+	Char: а     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: о     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: е     Attempt: 3    Binary: 0010000000000000000000000000000000
+	Char: і     Attempt: 5    Binary: 0000100000000000000000000000000000
+	Char: н     Attempt: 8    Binary: 0000000100000000000000000000000000
+	Char: _     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: е     Attempt: 3    Binary: 0010000000000000000000000000000000
+	Char: а     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: в     Attempt: 6    Binary: 0000010000000000000000000000000000
+	Char: д     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: а     Attempt: 5    Binary: 0000100000000000000000000000000000
+	Char: _     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: о     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: й     Attempt: 5    Binary: 0000100000000000000000000000000000
+	Char: б     Attempt: 8    Binary: 0000000100000000000000000000000000
+	Char: н     Attempt: 4    Binary: 0001000000000000000000000000000000
+	Char: и     Attempt: 3    Binary: 0010000000000000000000000000000000
+	Char: _     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: _     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: ш     Attempt: 32   Binary: 0000000000000000000000000000000100
+	Char: д     Attempt: 10   Binary: 0000000001000000000000000000000000
+	Char: я     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: _     Attempt: 1    Binary: 1000000000000000000000000000000000
+	Char: д     Attempt: 2    Binary: 0100000000000000000000000000000000
+	Char: п     Attempt: 13   Binary: 0000000000001000000000000000000000
+	Char: з     Attempt: 9    Binary: 0000000010000000000000000000000000
+
+Global Probabilities (Session):
+	1: 0.26
+	2: 0.14
+	3: 0.1
+	4: 0.08
+	5: 0.08
+	6: 0.04
+	7: 0.08
+	8: 0.06
+	9: 0.04
+	10: 0.02
+	11: 0.02
+	12: 0.02
+	13: 0.02
+	14: 0.02
+	15: 0.0
+	16: 0.0
+	17: 0.0
+	18: 0.0
+	19: 0.0
+	20: 0.0
+	21: 0.0
+	22: 0.0
+	23: 0.0
+	24: 0.0
+	25: 0.0
+	26: 0.0
+	27: 0.0
+	28: 0.0
+	29: 0.0
+	30: 0.0
+	31: 0.0
+	32: 0.02
+	33: 0.0
+	34: 0.0

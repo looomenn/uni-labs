@@ -1,0 +1,438 @@
+Game: AutoPlay LetterGuesser
+Number of Experiments: 50
+N-gram Order: 20
+Experiment details:
+	Experiment 1:
+		Attempts: 1
+		Correct char: e
+		Used Letters: e
+		Text: asket_hope_for_the_best_but_prepare_for_the_worst_no_use_crying_over_spi
+		Entropy bounds: -0.0000 < H < 4.7549
+
+	Experiment 2:
+		Attempts: 4
+		Correct char: e
+		Used Letters: _, o, i, e
+		Text: _practice_makes_perfect_silence_is_golden_the_early_bird_catches_the_wor
+		Entropy bounds: 1.0000 < H < 5.7549
+
+	Experiment 3:
+		Attempts: 14
+		Correct char: v
+		Used Letters: n, t, l, r, s, c, _, i, b, d, g, p, m, v
+		Text: e_is_fire_a_penny_saved_is_a_penny_earned_birds_of_a_feather_flock_toget
+		Entropy bounds: 1.5849 < H < 6.3398
+
+	Experiment 4:
+		Attempts: 4
+		Correct char: t
+		Used Letters: _, n, a, t
+		Text: each_an_old_dog_new_tricks_the_best_things_in_life_are_free_a_chain_is_o
+		Entropy bounds: 1.5000 < H < 6.2549
+
+	Experiment 5:
+		Attempts: 10
+		Correct char: d
+		Used Letters: r, s, n, e, l, t, c, a, i, d
+		Text: ey_hatch_you_cant_judge_a_book_by_its_cover_the_pen_is_mightier_than_the
+		Entropy bounds: 1.9219 < H < 6.6768
+
+	Experiment 6:
+		Attempts: 11
+		Correct char: g
+		Used Letters: _, e, i, u, a, s, o, d, r, v, g
+		Text: eakest_link_dont_judge_a_man_until_you_have_walked_a_mile_in_his_shoes_h
+		Entropy bounds: 2.2518 < H < 7.0067
+
+	Experiment 7:
+		Attempts: 4
+		Correct char: _
+		Used Letters: n, r, f, _
+		Text: _dogs_lie_no_pain_no_gain_once_in_a_blue_moon_out_of_sight_out_of_mind_p
+		Entropy bounds: 2.1283 < H < 6.8832
+
+	Experiment 8:
+		Attempts: 6
+		Correct char: o
+		Used Letters: _, n, a, t, e, o
+		Text: ways_greener_on_the_other_side_the_pen_is_mightier_than_the_sword_time_f
+		Entropy bounds: 2.4056 < H < 7.1605
+
+	Experiment 9:
+		Attempts: 6
+		Correct char: o
+		Used Letters: _, n, a, t, e, o
+		Text: s_is_always_greener_on_the_other_side_the_pen_is_mightier_than_the_sword
+		Entropy bounds: 2.4193 < H < 7.1742
+
+	Experiment 10:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: _no_man_is_an_island_out_of_sight_out_of_mind_practice_makes_perfect_sil
+		Entropy bounds: 2.4464 < H < 7.2013
+
+	Experiment 11:
+		Attempts: 3
+		Correct char: _
+		Used Letters: h, i, _
+		Text: hey_are_hatched_dont_judge_a_book_by_its_cover_every_cloud_has_a_silver_
+		Entropy bounds: 2.6634 < H < 7.4183
+
+	Experiment 12:
+		Attempts: 15
+		Correct char: p
+		Used Letters: _, n, a, t, e, o, h, r, i, s, c, d, l, f, p
+		Text: you_come_to_it_dont_put_the_cart_before_the_horse_dont_count_your_chicke
+		Entropy bounds: 2.8551 < H < 7.6100
+
+	Experiment 13:
+		Attempts: 4
+		Correct char: e
+		Used Letters: _, o, i, e
+		Text: _practice_makes_perfect_silence_is_golden_the_early_bird_catches_the_wor
+		Entropy bounds: 2.7770 < H < 7.5319
+
+	Experiment 14:
+		Attempts: 4
+		Correct char: _
+		Used Letters: n, r, f, _
+		Text: liss_it_takes_two_to_tango_let_sleeping_dogs_lie_no_pain_no_gain_once_in
+		Entropy bounds: 2.6922 < H < 7.4470
+
+	Experiment 15:
+		Attempts: 4
+		Correct char: t
+		Used Letters: _, n, a, t
+		Text: when_the_going_gets_tough_the_tough_get_going_you_cant_make_an_omelette_
+		Entropy bounds: 2.6066 < H < 7.3614
+
+	Experiment 16:
+		Attempts: 16
+		Correct char: _
+		Used Letters: r, s, n, e, l, t, c, a, i, d, m, p, b, g, f, _
+		Text: _tough_get_going_you_cant_make_an_omelette_without_breaking_eggs_you_can
+		Entropy bounds: 2.7806 < H < 7.5355
+
+	Experiment 17:
+		Attempts: 20
+		Correct char: b
+		Used Letters: _, n, a, t, e, o, h, r, i, s, c, d, l, f, p, g, w, m, u, b
+		Text: eps_the_doctor_away_better_late_than_never_curiosity_killed_the_cat_bird
+		Entropy bounds: 2.9392 < H < 7.6941
+
+	Experiment 18:
+		Attempts: 9
+		Correct char: i
+		Used Letters: _, n, a, t, e, o, h, r, i
+		Text: _ignorance_is_bliss_it_takes_two_to_tango_let_sleeping_dogs_lie_no_pain_
+		Entropy bounds: 3.0870 < H < 7.8419
+
+	Experiment 19:
+		Attempts: 1
+		Correct char: e
+		Used Letters: e
+		Text: _sword_time_flies_when_you_are_having_fun_two_heads_are_better_than_one_
+		Entropy bounds: 3.0755 < H < 7.8304
+
+	Experiment 20:
+		Attempts: 1
+		Correct char: n
+		Used Letters: n
+		Text: _and_a_hard_place_dont_bite_the_hand_that_feeds_you_dont_cry_over_spille
+		Entropy bounds: 3.0464 < H < 7.8013
+
+	Experiment 21:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: _mind_practice_makes_perfect_silence_is_golden_the_early_bird_catches_th
+		Entropy bounds: 3.0052 < H < 7.7600
+
+	Experiment 22:
+		Attempts: 1
+		Correct char: u
+		Used Letters: u
+		Text: hey_hatch_you_cant_judge_a_book_by_its_cover_the_pen_is_mightier_than_th
+		Entropy bounds: 2.9596 < H < 7.7145
+
+	Experiment 23:
+		Attempts: 3
+		Correct char: a
+		Used Letters: _, n, a
+		Text: has_a_silver_lining_a_rolling_stone_gathers_no_moss_fools_rush_in_where_
+		Entropy bounds: 3.0017 < H < 7.7565
+
+	Experiment 24:
+		Attempts: 3
+		Correct char: a
+		Used Letters: e, r, a
+		Text: or_the_best_but_prepare_for_the_worst_no_use_crying_over_spilled_milk_th
+		Entropy bounds: 3.0117 < H < 7.7666
+
+	Experiment 25:
+		Attempts: 13
+		Correct char: v
+		Used Letters: n, r, f, _, m, u, l, p, s, t, w, d, v
+		Text: orst_no_use_crying_over_spilled_milk_the_grass_is_always_greener_on_the_
+		Entropy bounds: 3.1329 < H < 7.8878
+
+	Experiment 26:
+		Attempts: 8
+		Correct char: e
+		Used Letters: n, o, t, s, c, l, a, e
+		Text: let_sleeping_dogs_lie_no_pain_no_gain_once_in_a_blue_moon_out_of_sight_o
+		Entropy bounds: 3.2487 < H < 8.0036
+
+	Experiment 27:
+		Attempts: 1
+		Correct char: u
+		Used Letters: u
+		Text: me_saves_nine_the_squeaky_wheel_gets_the_grease_two_heads_are_better_tha
+		Entropy bounds: 3.2014 < H < 7.9563
+
+	Experiment 28:
+		Attempts: 1
+		Correct char: e
+		Used Letters: e
+		Text: of_mind_practice_makes_perfect_silence_is_golden_the_early_bird_catches_
+		Entropy bounds: 3.1545 < H < 7.9094
+
+	Experiment 29:
+		Attempts: 17
+		Correct char: o
+		Used Letters: n, r, f, _, m, u, l, p, s, t, w, d, v, c, a, g, o
+		Text: _beggars_cant_be_choosers_better_to_be_safe_than_sorry_dont_cross_the_br
+		Entropy bounds: 3.2633 < H < 8.0181
+
+	Experiment 30:
+		Attempts: 3
+		Correct char: a
+		Used Letters: _, n, a
+		Text: time_flies_when_you_are_having_fun_two_heads_are_better_than_one_when_th
+		Entropy bounds: 3.2555 < H < 8.0103
+
+	Experiment 31:
+		Attempts: 3
+		Correct char: s
+		Used Letters: _, r, s
+		Text: _strong_as_its_weakest_link_dont_judge_a_man_until_you_have_walked_a_mil
+		Entropy bounds: 3.2421 < H < 7.9970
+
+	Experiment 32:
+		Attempts: 2
+		Correct char: _
+		Used Letters: e, _
+		Text: s_a_picture_is_worth_a_thousand_words_dont_count_your_chickens_before_th
+		Entropy bounds: 3.3380 < H < 8.0929
+
+	Experiment 33:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: ock_together_actions_speak_louder_than_words_a_picture_is_worth_a_thousa
+		Entropy bounds: 3.2973 < H < 8.0522
+
+	Experiment 34:
+		Attempts: 1
+		Correct char: e
+		Used Letters: e
+		Text: are_having_fun_two_heads_are_better_than_one_when_the_going_gets_tough_t
+		Entropy bounds: 3.2535 < H < 8.0084
+
+	Experiment 35:
+		Attempts: 11
+		Correct char: c
+		Used Letters: _, n, a, t, e, o, h, r, i, s, c
+		Text: thousand_words_dont_count_your_chickens_before_they_hatch_you_cant_judge
+		Entropy bounds: 3.2919 < H < 8.0468
+
+	Experiment 36:
+		Attempts: 2
+		Correct char: e
+		Used Letters: _, e
+		Text: cart_before_the_horse_dont_count_your_chickens_before_they_are_hatched_d
+		Entropy bounds: 3.3284 < H < 8.0832
+
+	Experiment 37:
+		Attempts: 5
+		Correct char: d
+		Used Letters: _, r, s, n, d
+		Text: is_fire_a_penny_saved_is_a_penny_earned_birds_of_a_feather_flock_togethe
+		Entropy bounds: 3.4159 < H < 8.1708
+
+	Experiment 38:
+		Attempts: 5
+		Correct char: o
+		Used Letters: e, _, i, a, o
+		Text: _in_rome_do_as_the_romans_do_you_cant_have_your_cake_and_eat_it_too_a_st
+		Entropy bounds: 3.4487 < H < 8.2036
+
+	Experiment 39:
+		Attempts: 2
+		Correct char: r
+		Used Letters: n, r
+		Text: ightier_than_the_sword_time_flies_when_you_are_having_fun_two_heads_are_
+		Entropy bounds: 3.4611 < H < 8.2160
+
+	Experiment 40:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: nny_saved_is_a_penny_earned_birds_of_a_feather_flock_together_dont_bite_
+		Entropy bounds: 3.4237 < H < 8.1786
+
+	Experiment 41:
+		Attempts: 8
+		Correct char: t
+		Used Letters: _, r, s, n, d, c, a, t
+		Text: s_tough_the_tough_get_going_you_cant_make_an_omelette_without_breaking_e
+		Entropy bounds: 3.4575 < H < 8.2124
+
+	Experiment 42:
+		Attempts: 10
+		Correct char: d
+		Used Letters: r, s, n, e, l, t, c, a, i, d
+		Text: lled_milk_every_cloud_has_a_silver_lining_a_rolling_stone_gathers_no_mos
+		Entropy bounds: 3.4886 < H < 8.2435
+
+	Experiment 43:
+		Attempts: 10
+		Correct char: o
+		Used Letters: _, d, t, g, c, s, e, a, i, o
+		Text: _the_worm_there_is_no_place_like_home_time_heals_all_wounds_what_goes_ar
+		Entropy bounds: 3.5046 < H < 8.2595
+
+	Experiment 44:
+		Attempts: 14
+		Correct char: f
+		Used Letters: _, n, a, t, e, o, h, r, i, s, c, d, l, f
+		Text: he_best_but_prepare_for_the_worst_no_use_crying_over_spilled_milk_the_gr
+		Entropy bounds: 3.5349 < H < 8.2898
+
+	Experiment 45:
+		Attempts: 3
+		Correct char: l
+		Used Letters: n, t, l
+		Text: e_like_home_time_heals_all_wounds_what_goes_around_comes_around_when_in_
+		Entropy bounds: 3.5222 < H < 8.2771
+
+	Experiment 46:
+		Attempts: 2
+		Correct char: r
+		Used Letters: _, r
+		Text: _greener_on_the_other_side_you_cant_teach_an_old_dog_new_tricks_the_best
+		Entropy bounds: 3.5266 < H < 8.2815
+
+	Experiment 47:
+		Attempts: 3
+		Correct char: e
+		Used Letters: _, i, e
+		Text: never_curiosity_killed_the_cat_birds_of_a_feather_flock_together_actions
+		Entropy bounds: 3.5139 < H < 8.2688
+
+	Experiment 48:
+		Attempts: 1
+		Correct char: _
+		Used Letters: _
+		Text: es_perfect_the_early_bird_catches_the_worm_there_is_no_place_like_home_t
+		Entropy bounds: 3.4817 < H < 8.2366
+
+	Experiment 49:
+		Attempts: 2
+		Correct char: n
+		Used Letters: _, n
+		Text: ll_that_glitters_is_not_gold_an_apple_a_day_keeps_the_doctor_away_better
+		Entropy bounds: 3.4805 < H < 8.2354
+
+	Experiment 50:
+		Attempts: 2
+		Correct char: r
+		Used Letters: _, r
+		Text: _greener_on_the_other_side_the_pen_is_mightier_than_the_sword_time_flies
+		Entropy bounds: 3.4749 < H < 8.2298
+
+
+Entropy:
+	Entropy bounds: 3.4749 < H < 8.2298
+
+Global Guessed Letters (Session):
+	Char: e     Attempt: 1    Binary: 100000000000000000000000000
+	Char: e     Attempt: 4    Binary: 000100000000000000000000000
+	Char: v     Attempt: 14   Binary: 000000000000010000000000000
+	Char: t     Attempt: 4    Binary: 000100000000000000000000000
+	Char: d     Attempt: 10   Binary: 000000000100000000000000000
+	Char: g     Attempt: 11   Binary: 000000000010000000000000000
+	Char: _     Attempt: 4    Binary: 000100000000000000000000000
+	Char: o     Attempt: 6    Binary: 000001000000000000000000000
+	Char: o     Attempt: 6    Binary: 000001000000000000000000000
+	Char: _     Attempt: 1    Binary: 100000000000000000000000000
+	Char: _     Attempt: 3    Binary: 001000000000000000000000000
+	Char: p     Attempt: 15   Binary: 000000000000001000000000000
+	Char: e     Attempt: 4    Binary: 000100000000000000000000000
+	Char: _     Attempt: 4    Binary: 000100000000000000000000000
+	Char: t     Attempt: 4    Binary: 000100000000000000000000000
+	Char: _     Attempt: 16   Binary: 000000000000000100000000000
+	Char: b     Attempt: 20   Binary: 000000000000000000010000000
+	Char: i     Attempt: 9    Binary: 000000001000000000000000000
+	Char: e     Attempt: 1    Binary: 100000000000000000000000000
+	Char: n     Attempt: 1    Binary: 100000000000000000000000000
+	Char: _     Attempt: 1    Binary: 100000000000000000000000000
+	Char: u     Attempt: 1    Binary: 100000000000000000000000000
+	Char: a     Attempt: 3    Binary: 001000000000000000000000000
+	Char: a     Attempt: 3    Binary: 001000000000000000000000000
+	Char: v     Attempt: 13   Binary: 000000000000100000000000000
+	Char: e     Attempt: 8    Binary: 000000010000000000000000000
+	Char: u     Attempt: 1    Binary: 100000000000000000000000000
+	Char: e     Attempt: 1    Binary: 100000000000000000000000000
+	Char: o     Attempt: 17   Binary: 000000000000000010000000000
+	Char: a     Attempt: 3    Binary: 001000000000000000000000000
+	Char: s     Attempt: 3    Binary: 001000000000000000000000000
+	Char: _     Attempt: 2    Binary: 010000000000000000000000000
+	Char: _     Attempt: 1    Binary: 100000000000000000000000000
+	Char: e     Attempt: 1    Binary: 100000000000000000000000000
+	Char: c     Attempt: 11   Binary: 000000000010000000000000000
+	Char: e     Attempt: 2    Binary: 010000000000000000000000000
+	Char: d     Attempt: 5    Binary: 000010000000000000000000000
+	Char: o     Attempt: 5    Binary: 000010000000000000000000000
+	Char: r     Attempt: 2    Binary: 010000000000000000000000000
+	Char: _     Attempt: 1    Binary: 100000000000000000000000000
+	Char: t     Attempt: 8    Binary: 000000010000000000000000000
+	Char: d     Attempt: 10   Binary: 000000000100000000000000000
+	Char: o     Attempt: 10   Binary: 000000000100000000000000000
+	Char: f     Attempt: 14   Binary: 000000000000010000000000000
+	Char: l     Attempt: 3    Binary: 001000000000000000000000000
+	Char: r     Attempt: 2    Binary: 010000000000000000000000000
+	Char: e     Attempt: 3    Binary: 001000000000000000000000000
+	Char: _     Attempt: 1    Binary: 100000000000000000000000000
+	Char: n     Attempt: 2    Binary: 010000000000000000000000000
+	Char: r     Attempt: 2    Binary: 010000000000000000000000000
+
+Global Probabilities (Session):
+	1: 0.24
+	2: 0.12
+	3: 0.14
+	4: 0.12
+	5: 0.04
+	6: 0.04
+	7: 0.0
+	8: 0.04
+	9: 0.02
+	10: 0.06
+	11: 0.04
+	12: 0.0
+	13: 0.02
+	14: 0.04
+	15: 0.02
+	16: 0.02
+	17: 0.02
+	18: 0.0
+	19: 0.0
+	20: 0.02
+	21: 0.0
+	22: 0.0
+	23: 0.0
+	24: 0.0
+	25: 0.0
+	26: 0.0
+	27: 0.0
