@@ -365,8 +365,8 @@ def main():
     results = analyze_text(directory, alphabet, lang_code=LANGUAGE)
     aggregated = aggregate_results(results)
 
-    generate_report(results, aggregated, f'report_{LANGUAGE}.txt', alphabet)
-    save_results(aggregated, f'./analysis_{LANGUAGE}.json')
+    generate_report(results, aggregated, f'./output/report_{LANGUAGE}.txt', alphabet)
+    save_results(aggregated, f'./output/analysis_{LANGUAGE}.json')
 
 
 if __name__ == "__main__":
