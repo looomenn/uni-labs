@@ -95,11 +95,6 @@ def load_text(file_path: str | Path) -> str:
     text = text.lower()
     text = re.sub(pattern, "", text)
 
-    # text = re.sub(r"[^\w\s]", " ", text)
-    # text = re.sub(r'[!"  #$%&\'()*+,-./:;<=>?@[\\\]^_`{|}~]', " ", text)
-    # text = text.lower()
-    # text = re.sub(r"\n", " ", text).strip()
-
     text = re.sub(r"\s+", " ", text).strip()
 
     return text
@@ -134,7 +129,6 @@ def analyze_text(
     Analyze a text to calculate letter and bigram frequencies, entropy, and redundancy.
 
     :param directory: Path to the text file.
-    :param alphabet_size: Size of the alphabet used in the text.
     :param alphabet: The alphabet used in the text.
     :param lang_code: The language code if filter is needed.
     :return: A dictionary with frequencies, entropy, and redundancy data.
@@ -148,6 +142,7 @@ def analyze_text(
         file_lang_code = file.stem[:2]
 
         if lang_code and file_lang_code != lang_code:
+            print(f'[DEBUG] File {file} is not in {lang_code}. Skipping it...')
             continue
 
         text = load_text(file)
@@ -237,7 +232,12 @@ def calc_langauge_redundancy(bounds: dict[int, str], alphabet_size: int)-> dict[
     return redundancy
 
 
-def generate_report(results: list[dict], aggregated: dict, output_path: str) -> None:
+def generate_report(
+        results: list[dict],
+        aggregated: dict,
+        output_path: str,
+        alphabet: str,
+) -> None:
     """Generate text report."""
     report_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     num_files = len(results)
@@ -257,7 +257,10 @@ def generate_report(results: list[dict], aggregated: dict, output_path: str) -> 
             file.write(f"Bigrams Redundancy: {result['bigram_redundancy']:.4f}\n")
             file.write(f"Detailed Entropy:\n")
             for key, value in result['entropy'].items():
-                file.write(f'\t{key}: {value:.4f}\n')
+                is_bigram = 'Bigram' in key
+                file.write(f'\t{key}:'
+                           f'\n\t\tEntropy: {value:.4f}'
+                           f'\tRedundancy:{calc_redundancy(value, len(alphabet), is_bigram)}\n')
             file.write(f"Bounds:\n")
             for key, value in result['bounds'].items():
                 file.write(f'\tN = {key}: {value}\n')
@@ -359,11 +362,11 @@ def main():
     directory: str = './texts'
     alphabet: str = ALPHABET_UK if LANGUAGE == 'uk' else ALPHABET_EN
 
-    results = analyze_text(directory, alphabet)
+    results = analyze_text(directory, alphabet, lang_code=LANGUAGE)
     aggregated = aggregate_results(results)
 
-    generate_report(results, aggregated, 'report.txt')
-    save_results(aggregated, './analysis.json')
+    generate_report(results, aggregated, f'report_{LANGUAGE}.txt', alphabet)
+    save_results(aggregated, f'./analysis_{LANGUAGE}.json')
 
 
 if __name__ == "__main__":

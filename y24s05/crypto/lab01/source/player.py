@@ -49,7 +49,7 @@ def static_guess(data: dict) -> tuple[str, str]:
 
 def main():
     """Entry point."""
-    analysis = load_analysis('./analysis.json')
+    analysis = load_analysis(f'./analysis_{LANGUAGE}.json')
 
     global FREQUENCIES
     FREQUENCIES = analysis['normalized_bigram_frequencies']
