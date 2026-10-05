@@ -7,3 +7,5 @@ _assets/
 \__pycache__/
 \vhi_dump/
 \.env
+
+node_modules/
