@@ -9,3 +9,4 @@ _assets/
 \.env
 
 node_modules/
+meta.toml
