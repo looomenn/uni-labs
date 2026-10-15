@@ -36,7 +36,14 @@ func main() {
 	// future url tests goes here
 	// i'm not writing quasi ifs to check if given url has port in it
 
-	httpClient := &http.Client{}
+	// settings for keep-live
+	transport := &http.Transport{
+		MaxIdleConns: 100,
+		MaxIdleConnsPerHost: 100,
+	}
+	httpClient := &http.Client{
+		Transport: transport,
+	}
 	endpoint := strings.TrimRight(*baseURL, "/") + "/inc"
 
 	var failedRequests atomic.Int64
