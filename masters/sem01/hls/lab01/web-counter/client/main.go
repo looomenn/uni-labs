@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"io"
 	"log"
-	"strings"
 	"net/http"
+	"strings"
+	"sync"
 	"sync/atomic"
 )
 
@@ -14,7 +15,7 @@ func main() {
 	requestsPerClient := flag.Int("requests", 10000, "Number of requests per client")
 	baseURL := flag.String("url", "http://localhost:8080", "Base URL of the server")
 	clients := flag.Int("clients", 1, "Number of clients")
-	
+
 	flag.Parse()
 
 	if *requestsPerClient <= 0 {
@@ -38,13 +39,37 @@ func main() {
 	endpoint := strings.TrimRight(*baseURL, "/") + "/inc"
 
 	var failedRequests atomic.Int64
-	runRequests(httpClient, endpoint, *requestsPerClient, &failedRequests)
+	var waitGroup sync.WaitGroup
+	start := make(chan struct{})
 
-	successfulRequests := int64(*requestsPerClient) - failedRequests.Load()
+	for clientIndex := 0; clientIndex < *clients; clientIndex++ {
+		waitGroup.Add(1)
 
-	fmt.Printf("total reqs: %d\n", *requestsPerClient)
-	fmt.Printf("successful: %d\n", successfulRequests)
-	fmt.Printf("failed: %d\n", failedRequests.Load())
+		go func() {
+			defer waitGroup.Done()
+
+			<-start
+
+			runRequests(
+				httpClient,
+				endpoint,
+				*requestsPerClient,
+				&failedRequests,
+			)
+		}()
+	}
+
+	close(start)
+
+	waitGroup.Wait()
+
+	totalRequests := int64(*clients) * int64(*requestsPerClient)
+	successfulRequests := totalRequests - failedRequests.Load()
+
+	fmt.Printf("total clients: %d\n", *clients)
+	fmt.Printf("total requests: %d\n", totalRequests)
+	fmt.Printf("\tsuccessful: %d\n", successfulRequests)
+	fmt.Printf("\tfailed: %d\n", failedRequests.Load())
 }
 
 func runRequests(
@@ -81,4 +106,3 @@ func sendRequest(httpClient *http.Client, url string) error {
 
 	return nil
 }
-
