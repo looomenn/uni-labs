@@ -10,7 +10,7 @@ import (
 // log: for logging errors and messages
 // net/http: for creating the HTTP server and handling requests
 
-type Counter struct {
+type Counter interface {
 	Inc() error
 	Get() (int64, error)
 	Reset() error
