@@ -19,9 +19,9 @@ type Counter interface {
 
 
 // var counter Counter: declares a variable with type interface
-// MemoryCounter: creates an instance of the MemoryCounter struct with default values.
-// &MemoryCounter{}: returns a pointer to the newly created MemoryCounter instance
-var counter Counter = &MemoryCounter{}
+// declared the variable without assigning a specific implementation to it.
+// starting value = nil
+var counter Counter
 
 
 // w http.ResponseWriter:
@@ -62,9 +62,23 @@ func resetHandler(w http.ResponseWriter, r *http.Request) {
 
 
 func main(){
+	// cli arguments format: <cli-flag>, <default-value>, <help-text>
+
 	// flag.String() returns *string(), not the value itself
 	addr := flag.String("addr", ":8080", "HTTP Server address")
+	storage := flag.String("storage", "memory", "Counter storage type")
 	flag.Parse()
+
+	switch *storage {
+	case "memory":
+		counter = &MemoryCounter{}
+	
+	case "disk":
+		log.Fatal("Disk storage is not implemented yet")
+	
+	default:
+		log.Fatalf("Uknown storage type: %s", *storage)
+	}
 
 	// register the handler function for the /count endpoint
 	http.HandleFunc("GET /count", countHandler)
