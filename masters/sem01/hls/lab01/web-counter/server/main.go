@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"net/http"
@@ -61,13 +62,17 @@ func resetHandler(w http.ResponseWriter, r *http.Request) {
 
 
 func main(){
+	// flag.String() returns *string(), not the value itself
+	addr := flag.String("addr", ":8080", "HTTP Server address")
+	flag.Parse()
+
 	// register the handler function for the /count endpoint
 	http.HandleFunc("GET /count", countHandler)
 	http.HandleFunc("GET /inc", incHandler)
 	http.HandleFunc("GET /reset", resetHandler)
 
-	log.Println("Starting server on :8080")
+	log.Printf("Server started on %s", *addr)
 
 	// nil: use the default ServeMux to handle requests
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(*addr, nil))
 }
