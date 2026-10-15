@@ -21,3 +21,9 @@ func (c *MemoryCounter) Inc() error {
 func (c *MemoryCounter) Get() (int64, error) {
 	return c.value.Load(), nil
 }
+
+
+func (c *MemoryCounter) Reset() error {
+	c.value.Store(0)
+	return nil
+}
