@@ -30,7 +30,7 @@ func countHandler(w http.ResponseWriter, r *http.Request) {
 
 func incHandler(w http.ResponseWriter, r *http.Request) {
 	if err := counter.Inc(); err != nil {
-		http.Error(w, "Failed to increment coutner", http.StatusInternalServerError)
+		http.Error(w, "Failed to increment counter", http.StatusInternalServerError)
 		return
 	}
 
