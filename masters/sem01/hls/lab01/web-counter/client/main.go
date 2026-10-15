@@ -4,33 +4,39 @@ import (
 	"fmt"
 	"io"
 	"log"
-	"flag"
+	"strings"
 	"net/http"
+	"sync/atomic"
 )
 
 func main() {
 	httpClient := &http.Client{}
+	endpoint := strings.TrimRight(*baseURL, "/") + "/inc"
 
-	requestsPerClient := 5
-	failedRequests := 0
+	var failedRequests atomic.Int64
+	runRequests(httpClient, endpoint, *requestsPerClient, &failedRequests)
 
-	for requestIndex := 0; requestIndex < requestsPerClient; requestIndex++{
-		err := sendRequest(httpClient, "http://localhost:8080/inc")
+	successfulRequests := int64(*requestsPerClient) - failedRequests.Load()
+
+	fmt.Printf("total reqs: %d\n", *requestsPerClient)
+	fmt.Printf("successful: %d\n", successfulRequests)
+	fmt.Printf("failed: %d\n", failedRequests.Load())
+}
+
+func runRequests(
+	httpClient *http.Client,
+	endpoint string,
+	requestsPerClient int,
+	failedRequests *atomic.Int64,
+) {
+	for requestIndex := 0; requestIndex < requestsPerClient; requestIndex++ {
+		err := sendRequest(httpClient, endpoint)
 
 		if err != nil {
-			failedRequests++
+			failedRequests.Add(1)
 			log.Printf("Request %d failed: %v", requestIndex+1, err)
 		}
 	}
-
-	successfulRequest := requestsPerClient - failedRequests
-
-	fmt.Printf("total reqs: %d\n", requestsPerClient)
-	fmt.Printf("successful: %d\n", successfulRequest)
-	fmt.Printf("failed: %d\n", failedRequests)
-
-
-	fmt.Println("Request completed successfully")
 }
 
 func sendRequest(httpClient *http.Client, url string) error {
@@ -51,3 +57,4 @@ func sendRequest(httpClient *http.Client, url string) error {
 
 	return nil
 }
+
