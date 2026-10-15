@@ -10,3 +10,5 @@ _assets/
 
 node_modules/
 meta.toml
+
+_materials/
