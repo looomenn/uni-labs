@@ -67,6 +67,7 @@ func main(){
 	// flag.String() returns *string(), not the value itself
 	addr := flag.String("addr", ":8080", "HTTP Server address")
 	storage := flag.String("storage", "memory", "Counter storage type")
+	filePath := flag.String("file", "counter.dat", "Counter storage file path")
 	flag.Parse()
 
 	switch *storage {
@@ -74,7 +75,12 @@ func main(){
 		counter = &MemoryCounter{}
 	
 	case "disk":
-		log.Fatal("Disk storage is not implemented yet")
+		diskCounter, err := NewDiskCounter(*filePath)
+		if err != nil {
+			log.Fatalf("Failed to init disk counter: %v", err)
+		}
+		
+		counter = diskCounter
 	
 	default:
 		log.Fatalf("Uknown storage type: %s", *storage)
