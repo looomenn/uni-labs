@@ -9,6 +9,7 @@ import (
 	"strings"
 	"sync"
 	"sync/atomic"
+	"time"
 )
 
 func main() {
@@ -59,17 +60,23 @@ func main() {
 		}()
 	}
 
-	close(start)
+	startTime := time.Now()
 
+	close(start)
 	waitGroup.Wait()
 
+	elapsed := time.Since(startTime)
 	totalRequests := int64(*clients) * int64(*requestsPerClient)
 	successfulRequests := totalRequests - failedRequests.Load()
+
+	rps := float64(totalRequests) / elapsed.Seconds()
 
 	fmt.Printf("total clients: %d\n", *clients)
 	fmt.Printf("total requests: %d\n", totalRequests)
 	fmt.Printf("\tsuccessful: %d\n", successfulRequests)
 	fmt.Printf("\tfailed: %d\n", failedRequests.Load())
+	fmt.Printf("elased: %.4f s\n", elapsed.Seconds())
+	fmt.Printf("rps: %.2f s\n", rps)
 }
 
 func runRequests(
