@@ -16,7 +16,12 @@ type Counter struct {
 	Reset() error
 }
 
-var counter Counter = &MemCounter{}
+
+// var counter Counter: declares a variable with type interface
+// MemoryCounter: creates an instance of the MemoryCounter struct with default values.
+// &MemoryCounter{}: returns a pointer to the newly created MemoryCounter instance
+var counter Counter = &MemoryCounter{}
+
 
 // w http.ResponseWriter:
 //   - used to form the HTTP response to send back to the client
