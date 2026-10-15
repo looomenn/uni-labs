@@ -39,9 +39,20 @@ func countHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, value)
 }
 
+
 func incHandler(w http.ResponseWriter, r *http.Request) {
 	if err := counter.Inc(); err != nil {
 		http.Error(w, "Failed to increment counter", http.StatusInternalServerError)
+		return
+	}
+
+	fmt.Fprintln(w, "ok")
+}
+
+
+func resetHandler(w http.ResponseWriter, r *http.Request) {
+	if err := counter.Reset(); err != nil {
+		http.Error(w, "Failed to reset counte", http.StatusInternalServerError)
 		return
 	}
 
@@ -53,6 +64,7 @@ func main(){
 	// register the handler function for the /count endpoint
 	http.HandleFunc("GET /count", countHandler)
 	http.HandleFunc("GET /inc", incHandler)
+	http.HandleFunc("GET /reset", resetHandler)
 
 	log.Println("Starting server on :8080")
 
