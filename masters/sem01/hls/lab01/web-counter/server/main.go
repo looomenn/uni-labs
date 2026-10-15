@@ -10,7 +10,13 @@ import (
 // log: for logging errors and messages
 // net/http: for creating the HTTP server and handling requests
 
-var counter MemoryCounter
+type Counter struct {
+	Inc() error
+	Get() (int64, error)
+	Reset() error
+}
+
+var counter Counter = &MemCounter{}
 
 // w http.ResponseWriter:
 //   - used to form the HTTP response to send back to the client
