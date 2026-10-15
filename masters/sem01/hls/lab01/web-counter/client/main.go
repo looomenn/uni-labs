@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io"
 	"log"
@@ -10,6 +11,29 @@ import (
 )
 
 func main() {
+	requestsPerClient := flag.Int("requests", 10000, "Number of requests per client")
+	baseURL := flag.String("url", "http://localhost:8080", "Base URL of the server")
+	clients := flag.Int("clients", 1, "Number of clients")
+	
+	flag.Parse()
+
+	if *requestsPerClient <= 0 {
+		log.Fatalf(
+			"Number of requests per client must be greater than 0. Got: %d",
+			*requestsPerClient,
+		)
+	}
+
+	if *clients <= 0 {
+		log.Fatalf(
+			"Number of clients must be greater than 0. Got: %d",
+			*clients,
+		)
+	}
+
+	// future url tests goes here
+	// i'm not writing quasi ifs to check if given url has port in it
+
 	httpClient := &http.Client{}
 	endpoint := strings.TrimRight(*baseURL, "/") + "/inc"
 
