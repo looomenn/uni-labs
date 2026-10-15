@@ -23,6 +23,42 @@ type Counter interface {
 // starting value = nil
 var counter Counter
 
+func main(){
+	// cli arguments format: <cli-flag>, <default-value>, <help-text>
+
+	// flag.String() returns *string(), not the value itself
+	addr := flag.String("addr", ":8080", "HTTP Server address")
+	storage := flag.String("storage", "memory", "Counter storage type")
+	filePath := flag.String("file", "counter.dat", "Counter storage file path")
+	flag.Parse()
+
+	switch *storage {
+	case "memory":
+		counter = &MemoryCounter{}
+	
+	case "disk":
+		diskCounter, err := NewDiskCounter(*filePath)
+		if err != nil {
+			log.Fatalf("Failed to init disk counter: %v", err)
+		}
+		
+		counter = diskCounter
+	
+	default:
+		log.Fatalf("Uknown storage type: %s", *storage)
+	}
+
+	// register the handler function for the /count endpoint
+	http.HandleFunc("GET /count", countHandler)
+	http.HandleFunc("GET /inc", incHandler)
+	http.HandleFunc("GET /reset", resetHandler)
+
+	log.Printf("Server started on %s", *addr)
+
+	// nil: use the default ServeMux to handle requests
+	log.Fatal(http.ListenAndServe(*addr, nil))
+}
+
 
 // w http.ResponseWriter:
 //   - used to form the HTTP response to send back to the client
@@ -60,39 +96,3 @@ func resetHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "ok")
 }
 
-
-func main(){
-	// cli arguments format: <cli-flag>, <default-value>, <help-text>
-
-	// flag.String() returns *string(), not the value itself
-	addr := flag.String("addr", ":8080", "HTTP Server address")
-	storage := flag.String("storage", "memory", "Counter storage type")
-	filePath := flag.String("file", "counter.dat", "Counter storage file path")
-	flag.Parse()
-
-	switch *storage {
-	case "memory":
-		counter = &MemoryCounter{}
-	
-	case "disk":
-		diskCounter, err := NewDiskCounter(*filePath)
-		if err != nil {
-			log.Fatalf("Failed to init disk counter: %v", err)
-		}
-		
-		counter = diskCounter
-	
-	default:
-		log.Fatalf("Uknown storage type: %s", *storage)
-	}
-
-	// register the handler function for the /count endpoint
-	http.HandleFunc("GET /count", countHandler)
-	http.HandleFunc("GET /inc", incHandler)
-	http.HandleFunc("GET /reset", resetHandler)
-
-	log.Printf("Server started on %s", *addr)
-
-	// nil: use the default ServeMux to handle requests
-	log.Fatal(http.ListenAndServe(*addr, nil))
-}
