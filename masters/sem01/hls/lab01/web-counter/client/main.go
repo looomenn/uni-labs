@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"strconv"
 	"strings"
 	"sync"
 	"sync/atomic"
@@ -44,11 +45,19 @@ func main() {
 	httpClient := &http.Client{
 		Transport: transport,
 	}
-	endpoint := strings.TrimRight(*baseURL, "/") + "/inc"
+	serverURL := strings.TrimRight(*baseURL, "/")
+
+	incrementURL := serverURL + "/inc"
+	resetURL := serverURL + "/reset"
+	countURL := serverURL + "/count"
 
 	var failedRequests atomic.Int64
 	var waitGroup sync.WaitGroup
 	start := make(chan struct{})
+
+	if err := sendRequest(httpClient, resetURL); err != nil {
+		log.Fatalf("Failed to reset counter: %v", err)
+	}
 
 	for clientIndex := 0; clientIndex < *clients; clientIndex++ {
 		waitGroup.Add(1)
@@ -60,7 +69,7 @@ func main() {
 
 			runRequests(
 				httpClient,
-				endpoint,
+				incrementURL,
 				*requestsPerClient,
 				&failedRequests,
 			)
@@ -73,17 +82,33 @@ func main() {
 	waitGroup.Wait()
 
 	elapsed := time.Since(startTime)
-	totalRequests := int64(*clients) * int64(*requestsPerClient)
-	successfulRequests := totalRequests - failedRequests.Load()
 
+	totalRequests := int64(*clients) * int64(*requestsPerClient)
+	totalErrors := failedRequests.Load()
+	successfulRequests := totalRequests - totalErrors
 	rps := float64(totalRequests) / elapsed.Seconds()
 
-	fmt.Printf("total clients: %d\n", *clients)
-	fmt.Printf("total requests: %d\n", totalRequests)
+	counterValue, err := getCounterValue(httpClient, countURL)
+	if err != nil {
+		log.Fatalf("failed to get counter value: %v", err)
+	}
+
+	fmt.Printf("clients: %d\n", *clients)
+	fmt.Printf("requests: %d\n", totalRequests)
 	fmt.Printf("\tsuccessful: %d\n", successfulRequests)
-	fmt.Printf("\tfailed: %d\n", failedRequests.Load())
+	fmt.Printf("\tfailed: %d\n", totalErrors)
 	fmt.Printf("elased: %.4f s\n", elapsed.Seconds())
-	fmt.Printf("rps: %.2f s\n", rps)
+	fmt.Printf("rps: %.2f req/s\n", rps)
+
+	fmt.Printf("counter value: %d (expected %d)\n", counterValue, totalRequests)
+
+	if counterValue != totalRequests {
+		log.Fatalf(
+			"Counter mismatch: expected %d, got %d",
+			totalRequests,
+			counterValue,
+		)
+	}
 }
 
 func runRequests(
@@ -119,4 +144,34 @@ func sendRequest(httpClient *http.Client, url string) error {
 	}
 
 	return nil
+}
+
+func getCounterValue(
+	httpClient *http.Client,
+	url string,
+) (int64, error) {
+	response, err := httpClient.Get(url)
+	if err != nil {
+		return 0, fmt.Errorf("Failed to send request: %w", err)
+	}
+
+	defer response.Body.Close()
+
+	responseBody, err := io.ReadAll(response.Body)
+	if err != nil {
+		return 0, fmt.Errorf("failed to read HTTP body: %w", err)
+	}
+
+	if response.StatusCode != http.StatusOK {
+		return 0, fmt.Errorf("unexpected HTTP status: %s", response.Status)
+	}
+
+	responseText := strings.TrimSpace(string(responseBody))
+
+	value, err := strconv.ParseInt(responseText, 10, 64)
+	if err != nil {
+		return 0, fmt.Errorf("failed to prase int value: %w", err)
+	}
+
+	return value, nil
 }
